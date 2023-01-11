@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         marginTop:60,
     },
     offer:{
-        backgroundColor:'#EACC7D',
+        backgroundColor:'#FFD701',
         height:70,
         width:70,
         borderRadius:10,

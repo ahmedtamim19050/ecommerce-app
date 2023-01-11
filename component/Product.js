@@ -23,10 +23,10 @@ const product = ({ item }) => {
                     <View style={styles.info}>
                         <Text style={styles.title}>{item.title}</Text>
                         <View style={styles.staricon}>
-                            <AntDesign name='star' size={14} color="#E3C55E" style={{marginRight:3,}}/>
-                            <AntDesign name='star' size={14} color="#E3C55E" style={{marginRight:3,}}/>
-                            <AntDesign name='star' size={14} color="#E3C55E" style={{marginRight:3,}}/>
-                            <AntDesign name='star' size={14} color="#E3C55E" style={{marginRight:3,}}/>
+                            <AntDesign name='star' size={14} color="#FFD701" style={{marginRight:3,}}/>
+                            <AntDesign name='star' size={14} color="#FFD701" style={{marginRight:3,}}/>
+                            <AntDesign name='star' size={14} color="#FFD701" style={{marginRight:3,}}/>
+                            <AntDesign name='star' size={14} color="#FFD701" style={{marginRight:3,}}/>
                             <AntDesign name='star' size={14} color="#B1B2AF" style={{marginRight:3,}}/>
                         </View>
 

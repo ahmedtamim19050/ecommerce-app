@@ -4,7 +4,7 @@ const NewArrivalData=[
         title:'Ed Gregory',
         shortDesc:'Lorem ipsum dolor sit amet is, consectetur.',
         price:'$300.00',
-        offerPrice:'$320.00',
+        offerPrice:undefined,
         image:require("../assets/products/product-8.jpg"),
         priceStatus:'NEW'
     },
@@ -15,7 +15,7 @@ const NewArrivalData=[
         price:'$120.00',
         offerPrice:'$150.00',
         image:require("../assets/products/product-9.jpg"),
-        priceStatus: undefined,
+        priceStatus: "Free Sheeping",
 
     },
     {
@@ -43,7 +43,7 @@ const NewArrivalData=[
         price:'$520.00',
         offerPrice:'$600.00',
         image:require("../assets/products/product-5.jpg"),
-        priceStatus: undefined,
+        priceStatus:'Free Sheeping',
     },
     {
         id:6,
@@ -52,6 +52,7 @@ const NewArrivalData=[
         price:'$520.00',
         offerPrice:'$600.00',
         image:require("../assets/products/product-4.jpg"),
+        priceStatus:'-10%',
   
     },
 

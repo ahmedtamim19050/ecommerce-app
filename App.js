@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView,Button } from 'react-native';
 import { NavigationContainer, TabActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons,Feather } from '@expo/vector-icons';
@@ -53,7 +53,7 @@ export default function App() {
             iconName=focused ? 'person' :'person-outline';
             size=focused ? 30 : 24;
           }
-          else if(route.name==='Shop'){
+          else if(route.name==='All Products'){
             iconName=focused ? 'basket' :'basket-outline';
             size=focused ? 30 : 24;
           }
@@ -61,6 +61,12 @@ export default function App() {
         },
         tabBarShowLabel:false,
         tabBarStyle: { backgroundColor: '#fff' ,height:60, borderRadius:20,width:'80%', alignSelf:'center',position:'absolute',bottom:0, left:45,marginBottom:10,},
+        headerTitleAlign: 'center',
+
+        // headerStyle: {
+        //   textAlign:'center',
+          
+        // },
       })}
  
       
@@ -68,7 +74,15 @@ export default function App() {
       
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Shop" component={Shop} />
+        <Tab.Screen name="All Products" component={Shop}  options={{
+              //  headerRight: () => (
+              //   <Button
+              //     onPress={() => alert('This is a button!')}
+              //     title="Info"
+              //     color="#777"
+              //   />
+              // ),
+        }}/>
         <Tab.Screen name="Cart" component={Cart} />
         <Tab.Screen name="WhichList" component={WhichList} />
         <Tab.Screen name="Profile" component={Profile} />
@@ -91,6 +105,7 @@ const styles = StyleSheet.create({
   scroll: {
     width: '100%',
     marginHorizontal: 20,
+
   },
   // navIcon:{
   //   backgroundColor:'black',
