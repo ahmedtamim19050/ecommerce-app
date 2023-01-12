@@ -40,33 +40,38 @@ export default function App() {
           if(route.name==='Home'){
             iconName=focused ? 'home' :'home-outline';
             size=focused ? 30 : 24;
+
           }
           else if(route.name==='My Cart'){
             iconName=focused ? 'cart' :'cart-outline';
             size=focused ? 30 : 24;
+          
           }
           else if(route.name==='WhichList'){
             iconName=focused ? 'heart' :'heart-outline';
             size=focused ? 30 : 24;
+    
           }
           else if(route.name==='Profile'){
             iconName=focused ? 'person' :'person-outline';
             size=focused ? 30 : 24;
+
           }
           else if(route.name==='All Products'){
             iconName=focused ? 'basket' :'basket-outline';
             size=focused ? 30 : 24;
+     
           }
-          return <Ionicons name={iconName} size={size} color="black" style={styles.navIcon}/>
+          return <Ionicons name={iconName} size={size} color="#59569D" style={styles.navIcon}/>
         },
         tabBarShowLabel:false,
         tabBarStyle: { backgroundColor: '#fff' ,height:60, borderRadius:20,width:'80%', alignSelf:'center',position:'absolute',bottom:0, left:45,marginBottom:10,},
         headerTitleAlign: 'center',
+        headerTitleStyle: {
+          color: '#59569D'
+        }
 
-        // headerStyle: {
-        //   textAlign:'center',
-          
-        // },
+ 
       })}
  
       

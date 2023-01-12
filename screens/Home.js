@@ -25,11 +25,12 @@ export default function Home({ navigation }) {
           <TextInput style={styles.search}
             label="Text"
             value={text}
+            placeholder="Search..."
             onChangeText={text => setText(text)}
           />
           <View style={styles.searchBtn}>
             <Link to="/">
-              <Octicons name="search" size={20} color="black" />
+              <Octicons name="search" size={20} color="#59569D" />
             </Link>
           </View>
 
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     width: '75%',
     borderRadius: 20,
-    color: '#777'
+    color: '#59569D'
   },
   searchSection: {
     flexDirection: 'row',
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     color: '#777'
   },
   filterBtn: {
-    backgroundColor: '#4f4f4f',
+    backgroundColor: '#59569D',
     justifyContent: 'center',
     // paddingVertical:20,
     paddingHorizontal: 20,

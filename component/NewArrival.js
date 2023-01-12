@@ -18,7 +18,7 @@ const NewArrival = ({item,navigation}) => {
 
             </View>
             <View style={styles.rightArrowIcon}>
-            <AntDesign name="rightcircle" size={30} color="black" />
+            <AntDesign name="rightcircle" size={30} color="#59569D" />
             </View>
 
     </View>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         marginTop:5,
         fontSize:16,
         fontWeight:'600',
-        color:'#404040'
+        color:'#F25292'
     },
     rightArrowIcon:{
         alignItems:'center',

@@ -15,23 +15,23 @@ const Shop = () => {
         <View style={styles.filterSec}>
           <View style={styles.filters}>
             <View style={styles.fiterItem}>
-              <Feather name='bar-chart-2' size={24} color="#ff375f" style={styles.ShortIcon} />
-              <Text style={{ fontSize: 15, fontWeight: '500', color: '#ff375f' }}>Short</Text>
+              <Feather name='bar-chart-2' size={24} color="#59569D" style={styles.ShortIcon} />
+              <Text style={{ fontSize: 15, fontWeight: '500', color: '#59569D' }}>Short</Text>
             </View>
             <View style={styles.fiterItem}>
-              <Ionicons name='options-outline' size={24} color="#ff375f" style={styles.ShortIcon} />
-              <Text style={{ fontSize: 15, fontWeight: '500', color: '#ff375f' }}>Refine</Text>
+              <Ionicons name='options-outline' size={24} color="#59569D" style={styles.ShortIcon} />
+              <Text style={{ fontSize: 15, fontWeight: '500', color: '#59569D' }}>Refine</Text>
             </View>
           </View>
           <View style={styles.filters}>
             <View style={styles.fiterItem}>
-              <Ionicons name='filter-outline' size={24} color="#ff375f" style={styles.filterIcon} />
+              <Ionicons name='filter-outline' size={24} color="#59569D" style={styles.filterIcon} />
             </View>
             <View style={styles.fiterItem}>
-              <Ionicons name='grid-outline' size={24} color="#ff375f" style={styles.filterIcon} />
+              <Ionicons name='grid-outline' size={24} color="#59569D" style={styles.filterIcon} />
             </View>
             <View style={styles.fiterItem}>
-              <Ionicons name='list' size={24} color="#ff375f" style={styles.filterIcon} />
+              <Ionicons name='list' size={24} color="#59569D" style={styles.filterIcon} />
             </View>
 
           </View>
@@ -41,10 +41,11 @@ const Shop = () => {
         <TextInput style={styles.search}
           label="Text"
           value={text}
+          placeholder="Search..."
           onChangeText={text => setText(text)}
         />
         <View style={styles.searchBtn}>
-          <Octicons name="search" size={20} color="black" />
+          <Octicons name="search"  size={20} color="#59569D" />
 
         </View>
       </View>
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     width: '75%',
     borderRadius: 20,
-    color: '#777',
+    color: '#59569D',
 
 
   },

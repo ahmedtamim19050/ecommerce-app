@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 
     },
     active:{
-     backgroundColor:'#010101',
+     backgroundColor:'#59569D',
      color:'#fff',
     }
 })

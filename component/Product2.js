@@ -16,7 +16,7 @@ const Product2 = ({ item }) => {
                             <Text style={[styles.priceStatus, item.priceStatus == "NEW" ? styles.primary : '',item.priceStatus=="Free Sheeping" ? styles.secondery :'']}>{item.priceStatus}</Text>
                         </View>) : ''}
                         <View style={styles.wishlist}>
-                            <Ionicons name='heart-outline' size={25} color="#ff375f" />
+                            <Ionicons name='heart-outline' size={25} color="#F25292" />
                         </View>
                     </View>
                     <View style={styles.info}>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 10,
         right: 10,
-        backgroundColor:'#ff375f',
+        backgroundColor:'#59569D',
         borderRadius:10,
         shadowColor: '#171717',  
         elevation: 30,  
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     statusSec: {
         position: 'absolute',
         left: 0,
-        backgroundColor: '#FFD701',
+        backgroundColor: '#F25292',
         borderRadius: 20,
         marginLeft: 10,
         marginTop: 7,
@@ -139,10 +139,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingHorizontal: 15,
         paddingVertical: 5,
-        color: 'black',
+        color: '#fff',
     },
     primary: {
-        backgroundColor: '#48C774',
+        backgroundColor: '#FEA096',
         color: '#fff',
         borderRadius: 20,
     },
@@ -156,15 +156,16 @@ const styles = StyleSheet.create({
     },
     offerprice:{
         textDecorationLine:'line-through',
-        color:'#888'
+        color:'#59569D'
     },
     isOfferPrice:{
-        color:'red',
+        color:'#F25292',
     },
     secondery:{
-        backgroundColor:'#FFD701',
+        backgroundColor:'#FEA096',
         color:'black',
         borderRadius: 20,
+        color:'#fff',
     }
 
 })

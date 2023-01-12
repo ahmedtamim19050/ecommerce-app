@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         marginTop:60,
     },
     offer:{
-        backgroundColor:'#FFD701',
+        backgroundColor:'#F25292',
         height:70,
         width:70,
         borderRadius:10,
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
           marginTop:10,
           marginLeft:10,
           fontWeight:'600',
+          color:'#fff'
           
         
     },
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
        textAlign:'center',
        marginLeft:30,
        fontWeight:'500',
+       color:'#fff'
     },
     titles:{
         marginLeft:20,

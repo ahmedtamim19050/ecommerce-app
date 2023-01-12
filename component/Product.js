@@ -17,7 +17,7 @@ const product = ({ item }) => {
                             <Text style={styles.price}>{item.price}</Text>
                         </View>
                         {item.priceStatus?(<View style={ styles.statusSec}>
-                            <Text style={{ fontSize:12,fontWeight:'500',textAlign:'center', marginTop:10, }}>{item.priceStatus}</Text>
+                            <Text style={{ fontSize:12,fontWeight:'500',textAlign:'center', marginTop:10,color:'#fff' }}>{item.priceStatus}</Text>
                         </View>) : ''}
                     </View>
                     <View style={styles.info}>
@@ -90,25 +90,27 @@ const styles = StyleSheet.create({
     },
     priceSec:{
         position:'absolute',
-        backgroundColor:'#FFD701',
+        backgroundColor:'#F25292',
         bottom:0,
         height:70,
         width:70,
         borderTopLeftRadius:50,
         borderTopRightRadius:50,
         borderBottomRightRadius:50,
+
     },
     price:{
           textAlign:'center',
           marginTop:25,
           fontSize:14,
           fontWeight:'600',
+          color:'#fff',
           
     },
     statusSec:{
         position:'absolute',
         right:0,
-        backgroundColor:'#FFD701',
+        backgroundColor:'#59569D',
         // paddingHorizontal:15,
         // paddingVertical:15,
         height:40,

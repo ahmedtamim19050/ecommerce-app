@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     color:'#666'
   },
   applybtn:{
-    backgroundColor:'#ff375f',
+    backgroundColor:'#F25292',
     width:70,
     textAlign:'center',
     paddingVertical:10,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   price:{
     fontSize:18,
-    color:"#555",
+    color:"#59569D",
     fontWeight:'600',
   },
   totalSec:{

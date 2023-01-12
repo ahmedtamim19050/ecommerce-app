@@ -14,14 +14,14 @@ const CartItem = ({item}) => {
             <View style={styles.imageSec}>
                 <Image style={styles.image} source={item.image} />
                 <View style={styles.quantitySec}>
-                    <AntDesign name='minus' onPress={() => handleMinusCount()} size={15} color="#666" style={{ marginTop: 5, }} />
+                    <AntDesign name='minus' onPress={() => handleMinusCount()} size={15} color="#fff" style={{ marginTop: 5, }} />
                     <Text style={styles.quantityAmmount}>{count}</Text>
 
-                    <AntDesign onPress={() => setCount(count + 1)} name='plus' size={14} color="#666" style={{ marginTop: 5, }} />
+                    <AntDesign onPress={() => setCount(count + 1)} name='plus' size={14} color="#fff" style={{ marginTop: 5, }} />
 
                 </View>
                 <View style={styles.cartDeleteSec}>
-                    <AntDesign name='delete' size={18} color="black" />
+                    <AntDesign name='delete' size={18} color="#fff" />
                 </View>
             </View>
             <View style={styles.infoSec}>
@@ -29,7 +29,7 @@ const CartItem = ({item}) => {
                     <Text style={styles.title}>{item.title}</Text>
                     <Text style={styles.desc}>{item.shortDesc}</Text>
                 </View>
-                <Text style={styles.title}>{item.price}</Text>
+                <Text style={[styles.title,styles.price]}>{item.price}</Text>
             </View>
         </View>
     )
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
       },
       quantitySec: {
         flexDirection: 'row',
-        backgroundColor: "#fff",
+        backgroundColor: "#59569D",
         width: 90,
         position: 'absolute',
         bottom: 20,
@@ -67,13 +67,13 @@ const styles = StyleSheet.create({
       quantityAmmount: {
         fontSize: 16,
         marginHorizontal: 5,
-        color: '#666',
+        color: '#fff',
         fontWeight: '600',
       },
       cartDeleteSec: {
         position: 'absolute',
         right: 10,
-        backgroundColor: '#FFD701',
+        backgroundColor: '#F25292',
         paddingHorizontal: 10,
         paddingVertical: 10,
         borderRadius: 50,
@@ -92,6 +92,9 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: '600',
         color: '#666'
+      },
+      price:{
+        color:'#F25292',
       }
     
 })

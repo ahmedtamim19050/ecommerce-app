@@ -9,7 +9,7 @@ const SearchItem = ({ item }) => {
             <Text style={[styles.title, item.id==1 ? styles.MarginRight : ''  ]}>{item.title}</Text>
             {
                 item.id==1 ? "" : (
-                    <Ionicons name='close' size={22} color="#666" style={styles.filterIcon} />
+                    <Ionicons name='close' size={22} color="#59569D" style={styles.filterIcon} />
                 )
             }
 
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingVertical: 10,
         fontSize: 15,
-        color: '#777',
+        color: '#59569D',
         fontWeight: '500',
         paddingRight:5,
     },
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     },
     MarginRight:{
         paddingRight:15,
-        backgroundColor:'black',
+        backgroundColor:'#59569D',
         borderRadius:20,
         color:"#fff"
     }
