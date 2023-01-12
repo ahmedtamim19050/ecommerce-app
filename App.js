@@ -7,7 +7,7 @@ import { Ionicons,Feather } from '@expo/vector-icons';
 import Home from './screens/Home';
 import Product from './screens/ProductSingle';
 import Cart from './screens/Cart';
-import WhichList from './screens/WhichList';
+import WhishList from './screens/WhishList';
 import Profile from './screens/Profile';
 import Shop from './screens/Shop';
 import CustomNavigator from './navigator/StackNavigator';
@@ -47,7 +47,7 @@ export default function App() {
             size=focused ? 30 : 24;
           
           }
-          else if(route.name==='WhichList'){
+          else if(route.name==='Whish List'){
             iconName=focused ? 'heart' :'heart-outline';
             size=focused ? 30 : 24;
     
@@ -89,7 +89,7 @@ export default function App() {
               // ),
         }}/>
         <Tab.Screen name="My Cart" component={Cart} />
-        <Tab.Screen name="WhichList" component={WhichList} />
+        <Tab.Screen name="Whish List" component={WhishList} />
         <Tab.Screen name="Profile" component={Profile} />
 
       </Tab.Navigator>
