@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TextInput,ScrollView} from 'react-native'
 import React from 'react'
 import { Ionicons, Feather, Octicons } from '@expo/vector-icons';
 import SearchHistory from '../component/SearchHistory';
-import products from '../data/ProductsData';
+import products from '../data/ProductsData2';
 import ProductSingle from './ProductSingle';
 import Product2 from '../component/Product2';
 

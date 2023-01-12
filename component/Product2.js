@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
-import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { AntDesign, Ionicons,Entypo } from '@expo/vector-icons';
 
 const Product2 = ({ item }) => {
     return (
@@ -10,7 +10,7 @@ const Product2 = ({ item }) => {
                     <View style={styles.thumbnailSec}>
                         <Image style={styles.image} source={item.image} />
                         <View style={styles.addCart}>
-                            <AntDesign name='plussquare' size={34} color="#139cf7" />
+                            <Entypo name='plus' size={30} color="white" />
                         </View>
                         {item.priceStatus ? (<View style={[styles.statusSec, item.priceStatus == "NEW" ? styles.primary : '' ,item.priceStatus=="Free Sheeping" ? styles.secondery :'']}>
                             <Text style={[styles.priceStatus, item.priceStatus == "NEW" ? styles.primary : '',item.priceStatus=="Free Sheeping" ? styles.secondery :'']}>{item.priceStatus}</Text>
@@ -107,6 +107,12 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 10,
         right: 10,
+        backgroundColor:'#ff375f',
+        borderRadius:10,
+        shadowColor: '#171717',  
+        elevation: 30,  
+    
+
 
     },
     price: {
@@ -121,7 +127,7 @@ const styles = StyleSheet.create({
     statusSec: {
         position: 'absolute',
         left: 0,
-        backgroundColor: '#ff0000',
+        backgroundColor: '#FFD701',
         borderRadius: 20,
         marginLeft: 10,
         marginTop: 7,
@@ -133,7 +139,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingHorizontal: 15,
         paddingVertical: 5,
-        color: '#fff',
+        color: 'black',
     },
     primary: {
         backgroundColor: '#48C774',

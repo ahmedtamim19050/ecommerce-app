@@ -41,7 +41,7 @@ export default function App() {
             iconName=focused ? 'home' :'home-outline';
             size=focused ? 30 : 24;
           }
-          else if(route.name==='Cart'){
+          else if(route.name==='My Cart'){
             iconName=focused ? 'cart' :'cart-outline';
             size=focused ? 30 : 24;
           }
@@ -83,7 +83,7 @@ export default function App() {
               //   />
               // ),
         }}/>
-        <Tab.Screen name="Cart" component={Cart} />
+        <Tab.Screen name="My Cart" component={Cart} />
         <Tab.Screen name="WhichList" component={WhichList} />
         <Tab.Screen name="Profile" component={Profile} />
 
