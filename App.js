@@ -10,6 +10,8 @@ import Cart from './screens/Cart';
 import WhishList from './screens/WhishList';
 import Profile from './screens/Profile';
 import Shop from './screens/Shop';
+import About from './screens/About';
+import ProductSingle from './screens/ProductSingle';
 import CustomNavigator from './navigator/StackNavigator';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -24,15 +26,26 @@ function LogoTitle() {
     />
   );
 }
+
+const HomeStack=()=>{
+  return (
+    <Stack.Navigator initialRouteName={Home}  screenOptions={{  
+         headerTintColor: '#59569D', 
+         headerTitleAlign: 'center',
+    }}>  
+    <Stack.Screen name="Home" component={Home} options={{ headerShown:false }}  /> 
+     <Stack.Screen name="About" navigator={navigator}  component={About} />
+     <Stack.Screen name="productSingle" navigator={navigator}  options={{ title: 'Roller Rabit' }}  component={ProductSingle} />
+</Stack.Navigator> 
+  )
+
+}
 const Tab = createBottomTabNavigator();
 export default function App() {
   return (
 
     <NavigationContainer>
-      {/* <Stack.Navigator >  */}
-      {/* <Stack.Screen name="Home" component={Home}   options={{ headerTitleAlign: 'center'}}/> */}
-      {/* <Stack.Screen name="About" component={About} options={{ headerlargeTitle:true,headerTitleAlign: 'center' }} /> */}
-    {/* </Stack.Navigator> */}
+
       <Tab.Navigator 
       screenOptions={({route})=>({
         tabBarIcon:({focused,size,color})=>{
@@ -65,6 +78,7 @@ export default function App() {
           return <Ionicons name={iconName} size={size} color="#59569D" style={styles.navIcon}/>
         },
         tabBarShowLabel:false,
+        headerShown:false,
         tabBarStyle: { backgroundColor: '#fff' ,height:60, borderRadius:20,width:'80%', alignSelf:'center',position:'absolute',bottom:0, left:45,marginBottom:10,},
         headerTitleAlign: 'center',
         headerTitleStyle: {
@@ -78,7 +92,7 @@ export default function App() {
 
       
       >
-        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="All Products" component={Shop}  options={{
               //  headerRight: () => (
               //   <Button
@@ -88,9 +102,10 @@ export default function App() {
               //   />
               // ),
         }}/>
-        <Tab.Screen name="My Cart" component={Cart} />
+        <Tab.Screen name="My Cart"  options={{ tabBarBadge:3, tabBarBadgeStyle:{backgroundColor:'#F25292'} }} component={Cart} />
         <Tab.Screen name="Whish List" component={WhishList} />
         <Tab.Screen name="Profile" component={Profile} />
+        {/* <Tab.Screen name="About" component={HomeStack} /> */}
 
       </Tab.Navigator>
     </NavigationContainer>

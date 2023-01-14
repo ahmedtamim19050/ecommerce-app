@@ -11,7 +11,7 @@ const NewArrival = ({item,navigation}) => {
         <Image style={styles.image} source={item.image} />
         </View>
         <View style={styles.info}>
-                <Text style={styles.title} onPress={()=>navigation.navigate('About')}>{item.title}</Text>
+                <Text style={styles.title} onPress={()=>navigation.navigate('productSingle')}>{item.title}</Text>
                 <Text style={styles.shortDesc}>{item.shortDesc}</Text>
 
                     <Text style={styles.price}>{item.price}</Text>

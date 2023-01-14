@@ -21,7 +21,7 @@ export default WhishList
 const styles = StyleSheet.create({
   container:{
     marginHorizontal:20,
-    marginTop:20,
+    marginTop:70,
     marginBottom:80,
   }
 })

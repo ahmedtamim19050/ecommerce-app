@@ -51,7 +51,7 @@ export default function Home({ navigation }) {
 
 
         <TouchableHighlight>
-          <Text style={styles.viewBtn} onPress={()=>navigation.navigate('About')}>View All</Text>
+          <Text style={styles.viewBtn} onPress={()=>navigation.navigate('My Cart')}>View All</Text>
         </TouchableHighlight>
       </View>
       <View>
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     // justifyContent:'center',
     // alignItems:'center',
     marginBottom:70,
+    marginTop:50,
 
   },
   search: {

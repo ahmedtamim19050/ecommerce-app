@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
     marginBottom:80,
-    marginTop:20,
+    marginTop:70,
   },
   promoCode:{
     height:60,

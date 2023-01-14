@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F7F7F7',
     marginBottom:80,
+    marginTop:50,
   },
   filterSec: {
     flexDirection: 'row',
