@@ -33,7 +33,7 @@ const HomeStack=()=>{
          headerTintColor: '#59569D', 
          headerTitleAlign: 'center',
     }}>  
-    <Stack.Screen name="Home" component={Home} options={{ headerShown:false }}  /> 
+    <Stack.Screen name="Home2" component={Home} options={{ headerShown:false }}  /> 
      <Stack.Screen name="About" navigator={navigator}  component={About} />
      <Stack.Screen name="productSingle" navigator={navigator}  options={{ title: 'Roller Rabit' }}  component={ProductSingle} />
 </Stack.Navigator> 

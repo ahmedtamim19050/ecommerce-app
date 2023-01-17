@@ -1,6 +1,7 @@
 import { Alert, Image, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { AntDesign, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const CartItem = ({item}) => {
     const [count, setCount] = useState(1)
@@ -16,9 +17,9 @@ const CartItem = ({item}) => {
                 <View style={styles.quantitySec}>
                     <AntDesign name='minus' onPress={() => handleMinusCount()} size={15} color="#fff" style={{ marginTop: 5, }} />
                     <Text style={styles.quantityAmmount}>{count}</Text>
-
+                    <TouchableOpacity >
                     <AntDesign onPress={() => setCount(count + 1)} name='plus' size={14} color="#fff" style={{ marginTop: 5, }} />
-
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.cartDeleteSec}>
                     <AntDesign name='delete' size={18} color="#fff" />
