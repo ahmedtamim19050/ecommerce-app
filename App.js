@@ -12,6 +12,10 @@ import Profile from './screens/Profile';
 import Shop from './screens/Shop';
 import About from './screens/About';
 import ProductSingle from './screens/ProductSingle';
+import Checkout from './screens/Checkout';
+import Payment from './screens/Payment';
+import Thankyou from './screens/ThankYou';
+import OrderDetails from './screens/OrderDetails';
 import CustomNavigator from './navigator/StackNavigator';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -36,6 +40,11 @@ const HomeStack=()=>{
     <Stack.Screen name="Home2" component={Home} options={{ headerShown:false }}  /> 
      <Stack.Screen name="About" navigator={navigator}  component={About} />
      <Stack.Screen name="productSingle" navigator={navigator}  options={{ title: 'Roller Rabit' }}  component={ProductSingle} />
+     <Stack.Screen name="Checkout" navigator={navigator}  options={{ title: 'Shipping' }} component={Checkout} />
+     <Stack.Screen name="Payment" navigator={navigator}  options={{ title: 'Payment' }} component={Payment} />
+     <Stack.Screen name="Thankyou" navigator={navigator}  options={{ title: 'Thank you' }} component={Thankyou} />
+     <Stack.Screen name="OrderDetails" navigator={navigator}  options={{ title: 'Order Details' }} component={OrderDetails} />
+     <Stack.Screen name="Shop" navigator={navigator}  options={{ title: 'All Products' }} component={Shop} />
 </Stack.Navigator> 
   )
 

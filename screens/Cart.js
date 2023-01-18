@@ -1,14 +1,15 @@
 import { Alert, Image, StyleSheet, Text, TextInput, View,ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import { AntDesign, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
+import { AntDesign, FontAwesome5, Octicons } from '@expo/vector-icons';
 import CartItem from '../component/CartItem';
 import CartItems from '../data/NewArrivalData'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
 
 
-const Cart = () => {
+const Cart = ({navigation}) => {
   const [count, setCount] = useState(0)
   const handleMinusCount = () => {
     if (count > 0) {
@@ -53,6 +54,10 @@ const Cart = () => {
         </View>
 
       </View>
+      <TouchableOpacity onPress={()=>navigation.navigate('Checkout')} style={{ position:'relative' }}>
+        <Text onPress={()=>navigation.navigate('Checkout')} style={styles.checkoutBtn}>Proceed to Checkout</Text>
+        <FontAwesome5 name='caret-square-right' style={styles.checkoutArrowIcon} size={30} color="#fff" />
+      </TouchableOpacity>
   
     </View>
     </ScrollView>
@@ -128,6 +133,22 @@ const styles = StyleSheet.create({
   },
   BorderNone:{
     borderBottomWidth:0,
+  },
+  checkoutBtn:{
+    backgroundColor:'#59569D',
+    paddingVertical:15,
+    marginTop:15,
+    paddingHorizontal:20,
+    marginBottom:20,
+    color:'#fff',
+    fontSize:16,
+    borderRadius:15,
+  },
+  checkoutArrowIcon:{
+    position:'absolute',
+    right:15,
+    top:25,
+
   }
  
 })

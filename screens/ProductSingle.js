@@ -159,10 +159,13 @@ const ProductSingle = ({ navigation }) => {
                 <AntDesign  name='plus' size={14} color="#fff" style={{ marginTop: 5, }} />
                 </TouchableOpacity>
               </View>
-              <View style={{ position:'relative' }}>
-              <Text style={styles.cartBtn}>Add to cart</Text>
+              <TouchableOpacity onPress={()=>navigation.navigate('My Cart')}>
+              <View style={{ position:'relative' }} >
+              <Text style={styles.cartBtn} onPress={()=>navigation.navigate('My Cart')}>Add to cart</Text>
               <AntDesign  name='right' size={18} color="#fff" style={styles.rightArrow} />
+              
             </View>
+            </TouchableOpacity>
             </View>
          
           </View>
@@ -315,9 +318,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: "#59569D",
     width: 120,
-    paddingVertical: 7,
+    paddingVertical: 15,
     justifyContent: 'center',
-    borderRadius: 20,
+    borderRadius: 30,
 
   },
   quantityAmmount: {
@@ -336,15 +339,16 @@ const styles = StyleSheet.create({
   cartBtn:{
     backgroundColor:'#F25292',
     paddingLeft:30,
-    paddingRight:50,
-    paddingVertical:10,
-    borderRadius:20,
+    paddingRight:70,
+    paddingVertical:15,
+    borderRadius:30,
     color:'#fff',
+    fontSize:16,
   },
   rightArrow:{
     position:'absolute',
-    right:0,
-    top:0,
+    right:8,
+    top:7,
     backgroundColor:'#ef7aa7',
     padding:10,
     borderRadius:50,
