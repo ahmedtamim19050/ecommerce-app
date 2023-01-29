@@ -1,9 +1,8 @@
-import { Alert, Image, StyleSheet, Text, TextInput, View,ScrollView } from 'react-native'
+import { Alert, Image, StyleSheet, Text, TextInput, View,ScrollView,TouchableOpacity} from 'react-native'
 import React, { useState } from 'react'
 import { AntDesign, FontAwesome5, Octicons } from '@expo/vector-icons';
 import CartItem from '../component/CartItem';
 import CartItems from '../data/NewArrivalData'
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
@@ -46,7 +45,7 @@ const Cart = ({navigation}) => {
           <Text style={styles.price}>$5.00</Text>
         </View>
         <View style={[styles.item,styles.BorderNone]}>
-          <Text style={styles.accountTitle}>Total :</Text>
+          <Text style={[styles.accountTitle,{color:'#59569D',fontSize:16,}]}>Total :</Text>
           <View style={styles.totalSec}>
             <Text style={styles.itemCount}>(3 item)</Text>
           <Text style={[styles.price,styles.totalPrice]}>$506.00</Text>
@@ -56,7 +55,7 @@ const Cart = ({navigation}) => {
       </View>
       <TouchableOpacity onPress={()=>navigation.navigate('Checkout')} style={{ position:'relative' }}>
         <Text onPress={()=>navigation.navigate('Checkout')} style={styles.checkoutBtn}>Proceed to Checkout</Text>
-        <FontAwesome5 name='caret-square-right' style={styles.checkoutArrowIcon} size={30} color="#fff" />
+        <AntDesign name='right' style={styles.checkoutArrowIcon} size={30} color="#fff" />
       </TouchableOpacity>
   
     </View>
@@ -127,6 +126,7 @@ const styles = StyleSheet.create({
   },
   totalPrice:{
     marginLeft:8,
+    color:'#F25292',
   },
   itemCount:{
     color:'#888',

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image,Dimensions} from 'react-native'
+import { StyleSheet, Text, View,Image,Dimensions, TouchableOpacity,Pressable} from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons'; 
 const { width, height } = Dimensions.get('screen')
@@ -6,9 +6,10 @@ const { width, height } = Dimensions.get('screen')
 const NewArrival = ({item,navigation}) => {
   return (
 <View style={styles.NewArrivalSec} >
-<View style={styles.container} >
+    <Pressable onPress={()=>navigation.navigate('productSingle')}>
+      <View style={styles.container} >
         <View style={styles.thumbnail}>
-        <Image style={styles.image} source={item.image} />
+        <Image style={styles.image} resizeMode='contain' source={item.image} />
         </View>
         <View style={styles.info}>
                 <Text style={styles.title} onPress={()=>navigation.navigate('productSingle')}>{item.title}</Text>
@@ -17,11 +18,12 @@ const NewArrival = ({item,navigation}) => {
                     <Text style={styles.price}>{item.price}</Text>
 
             </View>
-            <View style={styles.rightArrowIcon}>
+            {/* <View style={styles.rightArrowIcon}>
             <AntDesign name="rightcircle" size={30} color="#59569D" />
-            </View>
+            </View> */}
 
     </View>
+    </Pressable>
 </View>
   )
 }
@@ -31,7 +33,7 @@ export default NewArrival
 const styles = StyleSheet.create({
     NewArrivalSec:{
       width,
-      height:150,
+      height:135,
     },
     container:{
          marginHorizontal:10,
@@ -41,10 +43,11 @@ const styles = StyleSheet.create({
          elevation: 10,  
          marginTop:15,
          flexDirection:'row',
+         paddingRight:10,
     },
     thumbnail:{
         height:110,
-        width:130,
+        width:'30%',
         padding:8,
     },
     image:{
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
     },
     info:{
-        width:205,
+        width:"70%",
         marginHorizontal:10,
         marginVertical:10,
     },

@@ -13,12 +13,12 @@ const CartItem = ({item}) => {
     return (
         <View style={styles.container}>
             <View style={styles.imageSec}>
-                <Image style={styles.image} source={item.image} />
+                <Image style={styles.image} resizeMode='contain' source={item.image} />
                 <View style={styles.quantitySec}>
-                    <AntDesign name='minus' onPress={() => handleMinusCount()} size={15} color="#fff" style={{ marginTop: 5, }} />
+                    <AntDesign name='minus' onPress={() => handleMinusCount()} size={20} color="#fff" style={{  }} />
                     <Text style={styles.quantityAmmount}>{count}</Text>
                     <TouchableOpacity >
-                    <AntDesign onPress={() => setCount(count + 1)} name='plus' size={14} color="#fff" style={{ marginTop: 5, }} />
+                    <AntDesign onPress={() => setCount(count + 1)} name='plus' size={19} color="#fff" style={{  }} />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.cartDeleteSec}>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
       quantitySec: {
         flexDirection: 'row',
         backgroundColor: "#59569D",
-        width: 90,
+        width: 100,
         position: 'absolute',
         bottom: 20,
         left: 20,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
       },
       quantityAmmount: {
         fontSize: 16,
-        marginHorizontal: 5,
+        marginHorizontal: 15,
         color: '#fff',
         fontWeight: '600',
       },

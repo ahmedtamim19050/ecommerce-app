@@ -1,26 +1,43 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
-import { AntDesign, Ionicons,Entypo } from '@expo/vector-icons';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import { AntDesign, Ionicons, Entypo } from '@expo/vector-icons';
 
-const Product2 = ({ item }) => {
+
+
+
+const Product2 = ({ item, navigation }) => {
+    const [wishlist, setWishlist] = useState('');
+
+    const handleWishlist = (q) => {
+        setWishlist(curr => {
+            if (curr === q) return null;
+            return q;
+        })
+    }
     return (
         <View style={styles.productsSec}>
             <View style={styles.container}>
                 <View>
                     <View style={styles.thumbnailSec}>
-                        <Image style={styles.image} source={item.image} />
+                        <TouchableOpacity onPress={() => navigation.navigate('productSingle')}>
+                            <Image style={styles.image} resizeMode='contain' source={item.image} />
+                        </TouchableOpacity>
                         <View style={styles.addCart}>
-                            <Entypo name='plus' size={30} color="white" />
+                            <TouchableOpacity onPress={() => navigation.navigate('My Cart')}>
+                                <Entypo name='plus' size={30} color="white" />
+                            </TouchableOpacity>
                         </View>
-                        {item.priceStatus ? (<View style={[styles.statusSec, item.priceStatus == "NEW" ? styles.primary : '' ,item.priceStatus=="Free Sheeping" ? styles.secondery :'']}>
-                            <Text style={[styles.priceStatus, item.priceStatus == "NEW" ? styles.primary : '',item.priceStatus=="Free Sheeping" ? styles.secondery :'']}>{item.priceStatus}</Text>
+                        {item.priceStatus ? (<View style={[styles.statusSec, item.priceStatus == "NEW" ? styles.primary : '', item.priceStatus == "Free Sheeping" ? styles.secondery : '']}>
+                            <Text style={[styles.priceStatus, item.priceStatus == "NEW" ? styles.primary : '', item.priceStatus == "Free Sheeping" ? styles.secondery : '']}>{item.priceStatus}</Text>
                         </View>) : ''}
-                        <View style={styles.wishlist}>
-                            <Ionicons name='heart-outline' size={25} color="#F25292" />
-                        </View>
+
+                        <TouchableOpacity onPress={() => handleWishlist(item.id)} style={styles.wishlist}>
+                            <Ionicons name={wishlist === item.id ? 'heart' : 'heart-outline'} size={25} color="#F25292" />
+                        </TouchableOpacity>
+
                     </View>
                     <View style={styles.info}>
-                        <Text style={styles.title}>{item.title}</Text>
+                        <Text style={styles.title} onPress={() => navigation.navigate('productSingle')}>{item.title}</Text>
                         <View style={styles.staricon}>
                             <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
                             <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
@@ -31,12 +48,12 @@ const Product2 = ({ item }) => {
                         <View style={styles.priceSec}>
                             {
                                 item.offerPrice ? (
-                                    <Text style={[styles.price,styles.offerprice]}>
-                                    {item.offerPrice}
-                                </Text>
-                                ) :''
+                                    <Text style={[styles.price, styles.offerprice]}>
+                                        {item.offerPrice}
+                                    </Text>
+                                ) : ''
                             }
-                       
+
                             <Text style={[styles.price, item.offerPrice ? styles.isOfferPrice : '']}>
                                 {item.price}
                             </Text>
@@ -54,12 +71,13 @@ const Product2 = ({ item }) => {
 export default Product2
 
 const styles = StyleSheet.create({
-    productsSec:{
-      marginLeft:5,
+    productsSec: {
+        marginLeft: 5,
+        width: "42%",
+        marginRight: 20,
     },
     thumbnailSec: {
         height: 240,
-        width: 190,
         position: 'relative',
 
     },
@@ -107,11 +125,11 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 10,
         right: 10,
-        backgroundColor:'#59569D',
-        borderRadius:10,
-        shadowColor: '#171717',  
-        elevation: 30,  
-    
+        backgroundColor: '#59569D',
+        borderRadius: 10,
+        shadowColor: '#171717',
+        elevation: 30,
+
 
 
     },
@@ -151,21 +169,21 @@ const styles = StyleSheet.create({
         right: 10,
         top: 10,
     },
-    priceSec:{
-        flexDirection:'row',
+    priceSec: {
+        flexDirection: 'row',
     },
-    offerprice:{
-        textDecorationLine:'line-through',
-        color:'#59569D'
+    offerprice: {
+        textDecorationLine: 'line-through',
+        color: '#59569D'
     },
-    isOfferPrice:{
-        color:'#F25292',
+    isOfferPrice: {
+        color: '#F25292',
     },
-    secondery:{
-        backgroundColor:'#FEA096',
-        color:'black',
+    secondery: {
+        backgroundColor: '#FEA096',
+        color: 'black',
         borderRadius: 20,
-        color:'#fff',
+        color: '#fff',
     }
 
 })

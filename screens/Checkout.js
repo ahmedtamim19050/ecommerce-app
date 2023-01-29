@@ -36,7 +36,7 @@ const Checkout = ({navigation}) => {
         <View style={styles.container}>
             <View style={styles.mainSec}>
                 <View style={styles.shippingBradcam}>
-                    <Ionicons name='location-outline' size={25} color="#59569D" style={styles.locationIcon} />
+                    <Ionicons name='location-outline' size={25} color="#F25292" style={styles.locationIcon} />
                     <Text style={styles.letterSpace}>----</Text>
                     <AntDesign name='creditcard' size={25} color="#888" style={styles.creditIcon} />
                     <Text style={styles.letterSpace}>----</Text>
@@ -69,7 +69,7 @@ const Checkout = ({navigation}) => {
                                             />
                                         </View>
                                         <View style={{ marginLeft: 10, }}>
-                                            <Text style={styles.label}>First Name</Text>
+                                            <Text style={styles.label}>Last Name</Text>
                                             <TextInput style={[styles.input, styles.inputRow]}
                                                 label="Text"
                                                 value={lastName}
@@ -199,7 +199,7 @@ const Checkout = ({navigation}) => {
            <TouchableOpacity onPress={()=>navigation.navigate('Payment')}>
             <View style={styles.paymentBtnSec}>
                 <Text style={styles.paymentBtn}>Continue to Payment</Text>
-                <FontAwesome5 name='caret-square-right' style={styles.checkoutArrowIcon} size={30} color="#fff" />
+                <AntDesign name='right' style={styles.checkoutArrowIcon} size={30} color="#fff" />
             </View>
             </TouchableOpacity>
         </View>

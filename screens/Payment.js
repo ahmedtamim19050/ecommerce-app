@@ -7,7 +7,7 @@ import { Ionicons, AntDesign, FontAwesome } from '@expo/vector-icons';
 
 const Payment = ({ navigation }) => {
 
-    const [method, setMethod] = useState('');
+    const [method, setMethod] = useState('cash-on');
     const methodHandle = (item) => {
         setMethod(curr => {
             if (curr === item) return curr;
@@ -25,9 +25,9 @@ const Payment = ({ navigation }) => {
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.shippingBradcam}>
-                    <Ionicons name='location-outline' size={25} color="#59569D" style={styles.locationIcon} />
+                    <Ionicons name='location-outline' size={25} color="#F25292" style={styles.locationIcon} />
                     <Text style={[styles.letterSpace, styles.paymentLetter]}>----</Text>
-                    <AntDesign name='creditcard' size={25} color="#59569D" style={styles.creditIcon} />
+                    <AntDesign name='creditcard' size={25} color="#F25292" style={styles.creditIcon} />
                     <Text style={styles.letterSpace}>----</Text>
                     <AntDesign name='checkcircle' size={25} color="#888" style={styles.checkIcon} />
                 </View>
@@ -59,7 +59,7 @@ const Payment = ({ navigation }) => {
                         [method === 'cash-on' ?
                             (
                                 <View style={{ borderRadius: 100, }}>
-                                    <Image style={{ height: 280, width: 380, marginTop: 30, borderRadius: 20 }} source={require("../assets/images/ckzpe1c6d0002796g2awifpw8.jpg")} />
+                                    <Image style={{ height: 280, width:'100%', marginTop: 30, borderRadius: 20 }}  resizeMode='contain' source={require("../assets/images/ckzpe1c6d0002796g2awifpw8.jpg")} />
                                     <TouchableOpacity onPress={() => navigation.navigate('Thankyou')}>
                                         <Text onPress={() => navigation.navigate('Thankyou')} style={styles.orderBtn}>Complete Order - $149.00</Text>
                                     </TouchableOpacity>
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
         color: '#888'
     },
     paymentLetter: {
-        color: '#59569D',
+        color: '#F25292',
         fontWeight:'900',
     },
     methodItem: {

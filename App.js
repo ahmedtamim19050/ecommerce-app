@@ -16,7 +16,11 @@ import Checkout from './screens/Checkout';
 import Payment from './screens/Payment';
 import Thankyou from './screens/ThankYou';
 import OrderDetails from './screens/OrderDetails';
-import CustomNavigator from './navigator/StackNavigator';
+import Orders from './screens/Orders';
+import EditProfile from './screens/EditProfile';
+import ShippingAddress from './screens/ShippingAddress';
+import Notifications from './screens/Notifications';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
@@ -37,14 +41,17 @@ const HomeStack=()=>{
          headerTintColor: '#59569D', 
          headerTitleAlign: 'center',
     }}>  
-    <Stack.Screen name="Home2" component={Home} options={{ headerShown:false }}  /> 
+    <Stack.Screen name="Home2" component={Home} options={{ headerShown:false }}  />  
      <Stack.Screen name="About" navigator={navigator}  component={About} />
      <Stack.Screen name="productSingle" navigator={navigator}  options={{ title: 'Roller Rabit' }}  component={ProductSingle} />
      <Stack.Screen name="Checkout" navigator={navigator}  options={{ title: 'Shipping' }} component={Checkout} />
      <Stack.Screen name="Payment" navigator={navigator}  options={{ title: 'Payment' }} component={Payment} />
      <Stack.Screen name="Thankyou" navigator={navigator}  options={{ title: 'Thank you' }} component={Thankyou} />
      <Stack.Screen name="OrderDetails" navigator={navigator}  options={{ title: 'Order Details' }} component={OrderDetails} />
-     <Stack.Screen name="Shop" navigator={navigator}  options={{ title: 'All Products' }} component={Shop} />
+     <Stack.Screen name="Orders" navigator={navigator}  options={{ title: 'My Orders' }} component={Orders} />
+     <Stack.Screen name="EditProfile" navigator={navigator}  options={{ title: 'Edit Profile' }} component={EditProfile} />
+     <Stack.Screen name="Notifications" navigator={navigator}  options={{ title: 'Notifications' }} component={Notifications} />
+     <Stack.Screen name="ShippingAddress" navigator={navigator}  options={{ title: 'My Shipping Address' }} component={ShippingAddress} />
 </Stack.Navigator> 
   )
 
@@ -102,7 +109,7 @@ export default function App() {
       
       >
         <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="All Products" component={Shop}  options={{
+        <Tab.Screen name="All Products" navigator={navigator} component={Shop}  options={{
               //  headerRight: () => (
               //   <Button
               //     onPress={() => alert('This is a button!')}
@@ -112,8 +119,8 @@ export default function App() {
               // ),
         }}/>
         <Tab.Screen name="My Cart"  options={{ tabBarBadge:3, tabBarBadgeStyle:{backgroundColor:'#F25292'} }} component={Cart} />
-        <Tab.Screen name="Whish List" component={WhishList} />
-        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="Whish List" navigator={navigator} component={WhishList} />
+        <Tab.Screen name="Profile" navigator={navigator} component={Profile} />
         {/* <Tab.Screen name="About" component={HomeStack} /> */}
 
       </Tab.Navigator>

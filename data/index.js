@@ -1,26 +1,18 @@
 const data=[
     {
         id:1,
-        title:'Special Sale',
-        percentage:'50%',
-        percentageTitle:'Off',
-        image:require("../assets/banner/banner-7.jpg"),
+        image:require("../assets/banner/03.jpg"),
 
     },
     {
-        id:2,
-        title:'Winter Sale',
-        percentage:'30%',
-        percentageTitle:'Off',
-        image:require("../assets/banner/banner-8.jpg"),
+        id:1,
+        image:require("../assets/banner/04.jpg"),
 
     },
     {
-        id:3,
-        title:'Sumer Sale',
-        percentage:'20%',
-        percentageTitle:'Off',
-        image:require("../assets/banner/banner-4.png"),
+        id:1,
+        image:require("../assets/banner/05.jpg"),
+
     },
  
 ]

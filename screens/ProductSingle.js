@@ -61,16 +61,18 @@ const ProductSingle = ({ navigation }) => {
           // snapToAlignment='center' 
           showsHorizontalScrollIndicator={false}
           data={ProductImage}
+          snapToInterval={width}
           renderItem={({ item }) => <ProductImageSlider item={item} navigation={navigation} />} />
         <View style={{ marginTop: 10, }}>
           <Pagination data={ProductImage} scrollX={scrollX} />
         </View>
 
         <View style={styles.infoSec}>
+        <Text style={[styles.category,{marginLeft:30,marginTop:20,fontSize:16,color:'#FEA096'}]}>Camera</Text>
+          <Text style={styles.productTitle}>Intel Core i9-13900K Desktop Processor 24 cores (8 P-cores + 16 E-cores) 36M Cache, up to 5.8 GHz</Text>
           <View style={styles.headSec}>
             <View>
-              <Text style={styles.productTitle}>Roller Rabit</Text>
-              <Text style={styles.category}>Cosmetics</Text>
+              <Text style={[styles.category,{color:'#888',fontSize:12}]}>Reviews</Text>
               <View style={styles.ratings}>
                 <Text style={styles.ratingCount}>5k</Text>
                 <View style={styles.staricon}>
@@ -84,7 +86,7 @@ const ProductSingle = ({ navigation }) => {
             </View>
             <View>
               <Text style={styles.offerPrice}>$700.00</Text>
-              <Text style={styles.price}>$650.00</Text>
+              <Text style={styles.price}>$6500.00</Text>
             </View>
           </View>
 
@@ -94,7 +96,7 @@ const ProductSingle = ({ navigation }) => {
               <View style={styles.selectedItems}>
                 <TouchableOpacity onPress={() => handleColorSelect()} style={{ position: 'relative' }}>
                   <View style={[styles.firstColor, colorSelect === 0 ? styles.firstActive : '',]}>
-                    {colorSelect === 0 ? <AntDesign name='check' size={18} color="#fff" /> : ''}
+                    {colorSelect === 0 ? <AntDesign name='check' size={25} color="#fff" /> : ''}
 
 
                   </View>
@@ -103,7 +105,7 @@ const ProductSingle = ({ navigation }) => {
                 <TouchableOpacity onPress={() => handleColorSelect(1)} style={{ position: 'relative' }}>
                   <View style={[styles.secondColor, colorSelect === 1 ? styles.secondActive : '',]}>
 
-                    {colorSelect === 1 ? <AntDesign name='check' size={18} color="#fff" /> : ''}
+                    {colorSelect === 1 ? <AntDesign name='check' size={25} color="#fff" /> : ''}
 
                   </View>
 
@@ -111,7 +113,7 @@ const ProductSingle = ({ navigation }) => {
                 <TouchableOpacity onPress={() => handleColorSelect(2)} style={{ position: 'relative' }}>
                   <View style={[styles.thirdColor, colorSelect === 2 ? styles.thirdActive : '',]}>
 
-                    {colorSelect === 2 ? <AntDesign name='check' size={18} color="#fff" /> : ''}
+                    {colorSelect === 2 ? <AntDesign name='check' size={25} color="#fff" /> : ''}
 
                   </View>
 
@@ -124,21 +126,21 @@ const ProductSingle = ({ navigation }) => {
                 <View >
                   <TouchableOpacity onPress={() => handleSize('s')}>
                     <View style={[styles.sizeItem, size === 's' ? styles.activeSize : '']}>
-                      <Text style={{ color: '#fff', fontSize: 12, textAlign: 'center', fontWeight: '600', marginTop: 2, }}>S</Text>
+                      <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '600', marginTop: 2, }}>S</Text>
                     </View>
                   </TouchableOpacity>
                 </View>
                 <View style={{ marginLeft: 5, }}>
                   <TouchableOpacity onPress={() => handleSize('m')}>
                     <View style={[styles.sizeItem, size === 'm' ? styles.activeSize : '']}>
-                      <Text style={{ color: '#fff', fontSize: 12, textAlign: 'center', fontWeight: '600', marginTop: 2, }}>M</Text>
+                      <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '600', marginTop: 2, }}>M</Text>
                     </View>
                   </TouchableOpacity>
                 </View>
                 <View style={{ marginLeft: 5, }}>
                   <TouchableOpacity onPress={() => handleSize('l')}>
                     <View style={[styles.sizeItem, size === 'l' ? styles.activeSize : '']}>
-                      <Text style={{ color: '#fff', fontSize: 12, textAlign: 'center', fontWeight: '600', marginTop: 2, }}>L</Text>
+                      <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', fontWeight: '600', marginTop: 2, }}>L</Text>
                     </View>
                   </TouchableOpacity>
                 </View>
@@ -152,22 +154,22 @@ const ProductSingle = ({ navigation }) => {
             <View style={styles.cartsSec}>
               <View style={styles.quantitySec}>
                 <TouchableOpacity onPress={() => handleMinusCount()}>
-                <AntDesign name='minus'  size={15} color="#fff" style={{ marginTop: 5, }} />
+                  <AntDesign name='minus' size={15} color="#fff" style={{ marginTop: 5, }} />
                 </TouchableOpacity>
                 <Text style={styles.quantityAmmount}>{count}</Text>
                 <TouchableOpacity onPress={() => setCount(count + 1)}>
-                <AntDesign  name='plus' size={14} color="#fff" style={{ marginTop: 5, }} />
+                  <AntDesign name='plus' size={14} color="#fff" style={{ marginTop: 5, }} />
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity onPress={()=>navigation.navigate('My Cart')}>
-              <View style={{ position:'relative' }} >
-              <Text style={styles.cartBtn} onPress={()=>navigation.navigate('My Cart')}>Add to cart</Text>
-              <AntDesign  name='right' size={18} color="#fff" style={styles.rightArrow} />
-              
+              <TouchableOpacity onPress={() => navigation.navigate('My Cart')}>
+                <View style={{ position: 'relative' }} >
+                  <Text style={styles.cartBtn} onPress={() => navigation.navigate('My Cart')}>Add to cart</Text>
+                  <AntDesign name='right' size={18} color="#fff" style={styles.rightArrow} />
+
+                </View>
+              </TouchableOpacity>
             </View>
-            </TouchableOpacity>
-            </View>
-         
+
           </View>
         </View>
 
@@ -192,21 +194,25 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
   },
   productTitle: {
+    marginTop:20,
     fontSize: 18,
     fontWeight: '600',
     color: "#59569D",
+    marginHorizontal:25,
   },
   staricon: {
     flexDirection: 'row',
     marginTop: 2,
+    alignItems:'center',
   },
   ratings: {
-    flexDirection: 'row',
+    flexDirection: 'column',
+    
     marginTop: 3,
   },
   ratingCount: {
     marginRight: 5,
-    fontSize: 14,
+    fontSize: 24,
     color: '#777',
     fontWeight: '500',
   },
@@ -217,23 +223,23 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   offerPrice: {
-    fontSize: 12,
+    fontSize: 20,
     textDecorationLine: 'line-through',
     color: '#777',
     textAlign: 'right',
   },
   price: {
-    fontSize: 15,
+    fontSize: 27,
     marginTop: 5,
     fontWeight: '700',
-    color: '#59569D',
+    color: '#F25292',
     textAlign: 'right',
   },
   category: {
     color: '#F25292',
     fontWeight: '500',
     fontSize: 14,
-    marginTop: 8,
+    marginTop: 0,
   },
   colorSec: {
 
@@ -246,16 +252,16 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   firstColor: {
-    height: 20,
-    width: 20,
+    height: 25,
+    width: 25,
     borderColor: '#FEA096',
     borderWidth: 1,
     borderRadius: 5,
     marginTop: 10,
   },
   secondColor: {
-    height: 20,
-    width: 20,
+    height: 25,
+    width: 25,
     borderColor: '#59569D',
     borderWidth: 1,
     borderRadius: 5,
@@ -263,8 +269,8 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   thirdColor: {
-    height: 20,
-    width: 20,
+    height: 25,
+    width: 25,
     borderColor: '#F25292',
     borderWidth: 1,
     borderRadius: 5,
@@ -292,8 +298,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   sizeItem: {
-    height: 25,
-    width: 25,
+    height: 30,
+    width: 30,
     backgroundColor: '#59569D',
     borderRadius: 100,
   },
@@ -311,7 +317,7 @@ const styles = StyleSheet.create({
   detailsText: {
     paddingBottom: 20,
     color: '#888',
-    fontSize: 14,
+    fontSize: 16,
 
   },
   quantitySec: {
@@ -325,32 +331,31 @@ const styles = StyleSheet.create({
   },
   quantityAmmount: {
     fontSize: 16,
-    marginHorizontal: 5,
     color: '#fff',
     fontWeight: '600',
-    marginHorizontal:10,
+    marginHorizontal: 20,
   },
-  cartsSec:{
-    marginHorizontal:30,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    paddingBottom:80,
+  cartsSec: {
+    marginHorizontal: 30,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingBottom: 80,
   },
-  cartBtn:{
-    backgroundColor:'#F25292',
-    paddingLeft:30,
-    paddingRight:70,
-    paddingVertical:15,
-    borderRadius:30,
-    color:'#fff',
-    fontSize:16,
+  cartBtn: {
+    backgroundColor: '#F25292',
+    paddingLeft: 30,
+    paddingRight: 70,
+    paddingVertical: 15,
+    borderRadius: 30,
+    color: '#fff',
+    fontSize: 16,
   },
-  rightArrow:{
-    position:'absolute',
-    right:8,
-    top:7,
-    backgroundColor:'#ef7aa7',
-    padding:10,
-    borderRadius:50,
+  rightArrow: {
+    position: 'absolute',
+    right: 8,
+    top: 7,
+    backgroundColor: '#ef7aa7',
+    padding: 10,
+    borderRadius: 50,
   }
 })

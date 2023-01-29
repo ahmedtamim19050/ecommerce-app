@@ -4,8 +4,8 @@ import { FlatList } from 'react-native-gesture-handler';
 import products from '../data/ProductsData';
 import Product from './Product';
 
-export class TopsalesSlider extends Component {
-  render() {
+const TopsalesSlider = ({navigation}) => {
+
     return (
 
       <View style={styles.container}>
@@ -13,11 +13,11 @@ export class TopsalesSlider extends Component {
           snapToAlignment='center'
           showsHorizontalScrollIndicator={false}
           data={products}
-          renderItem={({ item }) => <Product item={item} />} />
+          renderItem={({ item }) => <Product key={item.id} navigation={navigation} item={item} />} />
       </View>
     )
   }
-}
+
 
 export default TopsalesSlider
 

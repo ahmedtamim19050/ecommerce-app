@@ -1,18 +1,18 @@
-import { StyleSheet, Text, View, Link, Linking, Image, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Link, Linking, Image, Dimensions, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 import { AntDesign, Feather } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('screen')
 
-const product = ({ item }) => {
+const product = ({ item,navigation }) => {
     console.log(item)
     const url = 'https://www.google.com'
     return (
         <View style={styles.productsSec}>
             <View style={styles.container}>
-                <View>
+               <TouchableOpacity onPress={()=>navigation.navigate('productSingle')}>
                     <View style={styles.thumbnailSec}>
-                        <Image style={styles.image} source={item.image} />
+                        <Image resizeMode='contain' style={styles.image} source={item.image} />
                         <View style={styles.priceSec}>
                             <Text style={styles.price}>{item.price}</Text>
                         </View>
@@ -33,7 +33,7 @@ const product = ({ item }) => {
 
                     </View>
 
-                </View>
+                    </TouchableOpacity>
             </View>
         </View>
     )
@@ -44,7 +44,7 @@ export default product
 const styles = StyleSheet.create({
     thumbnailSec: {
         height: 240,
-        width: 190,
+        width: 200,
         position:'relative',
 
     },
@@ -62,17 +62,17 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         // backgroundColor: '#fff',
-        marginRight: 6,
+        // marginRight: ,
         marginLeft: 6,
         marginTop: 20,
         borderRadius: 10,
         marginBottom: 20,
-        width: 190,
+        // width: 190,
         // shadowColor: '#171717',  
         // elevation: 10,  
     },
     info: {
-        width: 180,
+        width: 190,
     },
     title: {
         marginTop: 10,

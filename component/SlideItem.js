@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 const SlideItem = ({ item }) => {
     const [fontsLoaded] = useFonts({
         'Inter': require('../fonts/GreatVibes-Regular.ttf'),
+        'Roboto': require('../fonts/Roboto/Roboto-Medium.ttf'),
       });
       if(!fontsLoaded){
         return undefined;
@@ -15,8 +16,8 @@ const SlideItem = ({ item }) => {
             <View style={styles.bannerSection}>
 
 
-                <ImageBackground  imageStyle={{ borderRadius: 10,opacity:.3,backgroundColor:'#111'}} source={item.image}  style={styles.bgImage}>
-                   <View style={styles.info}>
+                <ImageBackground resizeMode='contain' resizeMethod='center'  imageStyle={{ borderRadius: 10}} source={item.image}  style={styles.bgImage}>
+                   {/* <View style={styles.info}>
            
                       <View style={styles.offer}>
                         <Text style={styles.offerPrice}>{item.percentage} </Text>
@@ -27,7 +28,7 @@ const SlideItem = ({ item }) => {
                         <Text style={styles.specialSale}>{item.title}</Text>
                       </View>
     
-                   </View>
+                   </View> */}
 
 
                 </ImageBackground>
@@ -47,8 +48,8 @@ const styles = StyleSheet.create({
     },
     bannerSection: {
         height: 200,
-        width: 398,
-        marginLeft: 10,
+        // width: 398,
+        marginHorizontal: 10,
         borderRadius: 50,
    
     },
@@ -121,7 +122,8 @@ const styles = StyleSheet.create({
     specialSale:{
         color:'#fff',
         fontSize:25,
-        fontWeight:'600'
+        fontWeight:'600',
+        fontFamily:'Roboto',
     }
     
 })

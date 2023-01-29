@@ -6,11 +6,11 @@ const ThankYou = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.shippingBradcam}>
-                <Ionicons name='location-outline' size={25} color="#59569D" style={styles.locationIcon} />
+                <Ionicons name='location-outline' size={25} color="#F25292" style={styles.locationIcon} />
                 <Text style={[styles.letterSpace, styles.paymentLetter]}>----</Text>
-                <AntDesign name='creditcard' size={25} color="#59569D" style={styles.creditIcon} />
+                <AntDesign name='creditcard' size={25} color="#F25292" style={styles.creditIcon} />
                 <Text style={[styles.letterSpace, styles.paymentLetter]}>----</Text>
-                <AntDesign name='checkcircle' size={25} color="#59569D" style={styles.checkIcon} />
+                <AntDesign name='checkcircle' size={25} color="#F25292" style={styles.checkIcon} />
             </View>
             <View style={styles.thanksImage}>
                 <Image style={{ height: 100, width: 100, marginTop: 80 }} source={require("../assets/images/3684620.png")} />
@@ -47,7 +47,7 @@ const ThankYou = ({navigation}) => {
                 <TouchableOpacity onPress={() => navigation.navigate('OrderDetails')}>
                     <Text  style={styles.orderDetilsBtn}>Order Details</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Shop')}>
+                <TouchableOpacity onPress={() => navigation.navigate('All Products')}>
                     <Text style={[styles.orderDetilsBtn,styles.seconderyBtn]}>Continue Shipping</Text>
                 </TouchableOpacity>
             </View>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
 
     },
     paymentLetter: {
-        color: '#59569D',
+        color: '#F25292',
         fontWeight: '900',
     },
     thanksImage: {

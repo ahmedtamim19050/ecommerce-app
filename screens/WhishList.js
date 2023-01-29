@@ -3,12 +3,12 @@ import React from 'react'
 import WishListItem from '../component/WishListItem'
 import whislistItems from '../data/NewArrivalData'
 
-const WhishList = () => {
+const WhishList = ({navigation}) => {
   return (
     <View style={styles.container}>
       {
         whislistItems.map(item =>{
-          return (<WishListItem item={item} key={item.id}/>)
+          return (<WishListItem navigation={navigation} item={item} key={item.id}/>)
         })
       }
       

@@ -1,7 +1,16 @@
-import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, Button } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, Button, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
 // const { width, height } = Dimensions.get('window')
 const Category = ({item,navigation}) => {
+    const [category, setCategory] = useState('');
+
+    const handeCategory = (item) => {
+      // setSize(true);
+      setCategory(curr => {
+        if (curr === item) return curr;
+        return item;
+      })
+    }
 
 
  
@@ -9,10 +18,11 @@ const Category = ({item,navigation}) => {
         
         <View style={styles.CategorySection} key={item.id} >
             
-            <View style={[styles.container, styles.shadowProp, item.id==1 ? styles.active :'' ]}>
-                <View style={styles.item}>
-                    <Text style={[styles.title, item.id==1 ? styles.active :'' ]} onPress={()=>navigation.navigate('About')}>{item.title}</Text>
-                </View>
+            <View style={[styles.container, styles.shadowProp,category===item.title ? styles.active :''  ]}>
+                 <TouchableOpacity onPress={()=>handeCategory(item.title)} style={styles.item}>
+               
+                    <Text style={[styles.title, category===item.title ? styles.active :'' ]} onPress={()=>navigation.navigate('All Products')}>{item.title}</Text>
+                </TouchableOpacity>
                
             </View>
         </View>
@@ -24,8 +34,8 @@ export default Category
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 40,
-        backgroundColor: '#fff',
+        marginTop: 20,
+        backgroundColor: '#59569D',
         // width: '40%',
         height: 40,
         flexDirection: 'column',
@@ -50,12 +60,13 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 15,
         marginLeft: 10,
-        paddingHorizontal:20,
+        paddingLeft:15,
+        paddingRight:20,
         fontWeight: '600',
-        color: '#666'
+        color: '#fff'
     },
     CategorySection:{
-     height:100,
+     height:75,
     //  width:150,
      marginHorizontal:10,
       

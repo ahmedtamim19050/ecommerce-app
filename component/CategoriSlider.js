@@ -11,7 +11,7 @@ const CategoriSlider = ({navigation}) => {
     // snapToAlignment='center' 
     showsHorizontalScrollIndicator={false}
     data={categories} 
-    renderItem={({ item }) => <Category item={item}  navigation={navigation}/>} />
+    renderItem={({ item }) => <Category item={item} key={item.id}  navigation={navigation}/>} />
   )
 }
 
