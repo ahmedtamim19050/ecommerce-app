@@ -6,13 +6,13 @@ const { width, height } = Dimensions.get('screen')
 const NewArrival = ({item,navigation}) => {
   return (
 <View style={styles.NewArrivalSec} >
-    <Pressable onPress={()=>navigation.navigate('productSingle')}>
+    <Pressable onPress={()=>navigation.navigate('productSingle',{ item: item })}>
       <View style={styles.container} >
         <View style={styles.thumbnail}>
         <Image style={styles.image} resizeMode='contain' source={item.image} />
         </View>
         <View style={styles.info}>
-                <Text style={styles.title} onPress={()=>navigation.navigate('productSingle')}>{item.title}</Text>
+                <Text style={styles.title} onPress={()=>navigation.navigate('productSingle',{ item: item })}>{item.title}</Text>
                 <Text style={styles.shortDesc}>{item.shortDesc}</Text>
 
                     <Text style={styles.price}>{item.price}</Text>

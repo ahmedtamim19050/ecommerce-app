@@ -6,7 +6,7 @@ const ColorSliderItem = ({item}) => {
     const [color, setColor] = useState('');
     const handleColor = (q) => {
         setColor(curr => {
-            if (curr === q) return curr;
+            if (curr === q) return !curr;
             return q;
         })
     }

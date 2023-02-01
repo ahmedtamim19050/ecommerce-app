@@ -7,7 +7,10 @@ import Pagination from '../component/Pagination'
 import { AntDesign, Octicons, Fontisto, Ionicons } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('screen')
 
-const ProductSingle = ({ navigation }) => {
+const ProductSingle = ({ navigation,route }) => {
+  const item=route.params.item;
+  const images=item.images;
+
   const scrollX = useRef(new Animated.Value(0)).current;
   const handleOnScroll = event => {
     Animated.event([
@@ -60,7 +63,7 @@ const ProductSingle = ({ navigation }) => {
           onScroll={handleOnScroll}
           // snapToAlignment='center' 
           showsHorizontalScrollIndicator={false}
-          data={ProductImage}
+          data={images}
           snapToInterval={width}
           renderItem={({ item }) => <ProductImageSlider item={item} navigation={navigation} />} />
         <View style={{ marginTop: 10, }}>
@@ -69,7 +72,7 @@ const ProductSingle = ({ navigation }) => {
 
         <View style={styles.infoSec}>
         <Text style={[styles.category,{marginLeft:30,marginTop:20,fontSize:16,color:'#FEA096'}]}>Camera</Text>
-          <Text style={styles.productTitle}>Intel Core i9-13900K Desktop Processor 24 cores (8 P-cores + 16 E-cores) 36M Cache, up to 5.8 GHz</Text>
+          <Text style={styles.productTitle}>{item.title}</Text>
           <View style={styles.headSec}>
             <View>
               <Text style={[styles.category,{color:'#888',fontSize:12}]}>Reviews</Text>
@@ -85,8 +88,8 @@ const ProductSingle = ({ navigation }) => {
               </View>
             </View>
             <View>
-              <Text style={styles.offerPrice}>$700.00</Text>
-              <Text style={styles.price}>$6500.00</Text>
+              <Text style={styles.offerPrice}>{item.offerPrice}</Text>
+              <Text style={styles.price}>{item.price}</Text>
             </View>
           </View>
 
@@ -148,7 +151,7 @@ const ProductSingle = ({ navigation }) => {
             </View>
           </View>
           <View style={styles.detailsSec}>
-            <Text style={styles.detailsText}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</Text>
+            <Text style={styles.detailsText}>{item.shortDesc}</Text>
           </View>
           <View>
             <View style={styles.cartsSec}>

@@ -5,8 +5,24 @@ const NewArrivalData=[
         shortDesc:'Lorem ipsum dolor sit amet is, consectetur.',
         price:'$300.00',
         offerPrice:undefined,
-        image:require("../assets/products/product-8.jpg"),
-        priceStatus:'NEW'
+        image:require("../assets/products/product-20.jpg"),
+        priceStatus:'NEW',
+        images:
+        [
+            {
+                id: 1,
+                image: require("../assets/products/product-20.jpg"),
+            },
+            {
+                id: 2,
+                image: require("../assets/products/product-22.jpg"),
+            },
+            {
+                id: 3,
+                image: require("../assets/products/product-22.jpg"),
+            },
+        ],
+
     },
     {
         id:2,
@@ -14,8 +30,23 @@ const NewArrivalData=[
         shortDesc:'Lorem ipsum dolor sit amet is, consectetur.',
         price:'$120.00',
         offerPrice:'$150.00',
-        image:require("../assets/products/product-9.jpg"),
+        image:require("../assets/products/product-22.jpg"),
         // priceStatus: "Free Sheeping",
+        images:
+        [
+            {
+                id: 1,
+                image: require("../assets/products/product-22.jpg"),
+            },
+            {
+                id: 2,
+                image: require("../assets/products/product-23.jpg"),
+            },
+            {
+                id: 3,
+                image: require("../assets/products/product-24.jpg"),
+            },
+        ],
 
     },
     {
@@ -24,8 +55,23 @@ const NewArrivalData=[
         shortDesc:'Lorem ipsum dolor sit amet is, consectetur.',
         price:'$520.00',
         offerPrice:'$600.00',
-        image:require("../assets/products/product-3.jpg"),
-        priceStatus:'-20%'
+        image:require("../assets/products/product-23.jpg"),
+        priceStatus:'-20%',
+        images:
+        [
+            {
+                id: 1,
+                image: require("../assets/products/product-23.jpg"),
+            },
+            {
+                id: 2,
+                image: require("../assets/products/product-31.jpg"),
+            },
+            {
+                id: 3,
+                image: require("../assets/products/product-30.jpg"),
+            },
+        ],
     },
     {
         id:4,
@@ -33,8 +79,23 @@ const NewArrivalData=[
         shortDesc:'Lorem ipsum dolor sit amet is, consectetur.',
         price:'$520.00',
         offerPrice:'$600.00',
-        image:require("../assets/products/product-6.jpg"),
-        priceStatus:'-10%'
+        image:require("../assets/products/product-24.jpg"),
+        priceStatus:'-10%',
+        images:
+        [
+            {
+                id: 1,
+                image: require("../assets/products/product-24.jpg"),
+            },
+            {
+                id: 2,
+                image: require("../assets/products/product-27.jpg"),
+            },
+            {
+                id: 3,
+                image: require("../assets/products/product-28.jpg"),
+            },
+        ],
     },
     {
         id:5,
@@ -42,8 +103,23 @@ const NewArrivalData=[
         shortDesc:'Lorem ipsum dolor sit amet is, consectetur.',
         price:'$520.00',
         offerPrice:'$600.00',
-        image:require("../assets/products/product-5.jpg"),
+        image:require("../assets/products/product-25.jpg"),
         // priceStatus:'Free Sheeping',
+        images:
+        [
+            {
+                id: 1,
+                image: require("../assets/products/product-25.jpg"),
+            },
+            {
+                id: 2,
+                image: require("../assets/products/product-27.jpg"),
+            },
+            {
+                id: 3,
+                image: require("../assets/products/product-28.jpg"),
+            },
+        ],
     },
     {
         id:6,
@@ -51,8 +127,23 @@ const NewArrivalData=[
         shortDesc:'Lorem ipsum dolor sit amet is, consectetur.',
         price:'$520.00',
         offerPrice:'$600.00',
-        image:require("../assets/products/product-4.jpg"),
+        image:require("../assets/products/product-26.jpg"),
         priceStatus:'-10%',
+        images:
+        [
+            {
+                id: 1,
+                image: require("../assets/products/product-26.jpg"),
+            },
+            {
+                id: 2,
+                image: require("../assets/products/product-21.jpg"),
+            },
+            {
+                id: 3,
+                image: require("../assets/products/product-22.jpg"),
+            },
+        ],
   
     },
 

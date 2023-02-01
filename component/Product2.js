@@ -19,7 +19,7 @@ const Product2 = ({ item, navigation }) => {
             <View style={styles.container}>
                 <View>
                     <View style={styles.thumbnailSec}>
-                        <TouchableOpacity onPress={() => navigation.navigate('productSingle')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('productSingle',{ item: item })}>
                             <Image style={styles.image} resizeMode='contain' source={item.image} />
                         </TouchableOpacity>
                         <View style={styles.addCart}>
@@ -37,7 +37,7 @@ const Product2 = ({ item, navigation }) => {
 
                     </View>
                     <View style={styles.info}>
-                        <Text style={styles.title} onPress={() => navigation.navigate('productSingle')}>{item.title}</Text>
+                        <Text style={styles.title} onPress={() => navigation.navigate('productSingle',{ item: item })}>{item.title}</Text>
                         <View style={styles.staricon}>
                             <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
                             <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />

@@ -18,7 +18,7 @@ const Shop = ({ navigation }) => {
   const [colorDown, setColorDown] = useState(false);
   const [priceRange, setPriceRange] = useState(false);
   const [review, setReview] = useState(false);
-  const [view, setView] = useState(false);
+  const [view, setView] = useState(true);
   const handleView = (q) => {
     setView(curr => {
       if (curr === q) return curr;

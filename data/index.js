@@ -5,12 +5,12 @@ const data=[
 
     },
     {
-        id:1,
+        id:2,
         image:require("../assets/banner/04.jpg"),
 
     },
     {
-        id:1,
+        id:3,
         image:require("../assets/banner/05.jpg"),
 
     },

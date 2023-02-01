@@ -2,7 +2,6 @@ import { StyleSheet, Text, View,Animated ,Dimensions} from 'react-native'
 import React from 'react'
 const {width}=Dimensions.get('screen')
 const Pagination = ({data,scrollX}) => {
-  console.log(scrollX);
   return (
     <View style={styles.container} key={data.id}>
      {
@@ -13,7 +12,7 @@ const Pagination = ({data,scrollX}) => {
               inputRange: inputRange,
               outputRange: [12, 30, 12],
             })
-            return <Animated.View style={[styles.dot,{width:dotWidth}]}/>
+            return <Animated.View key={data.id} style={[styles.dot,{width:dotWidth}]}/>
         })
      }
     </View>

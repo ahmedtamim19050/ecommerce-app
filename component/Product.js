@@ -5,12 +5,11 @@ import { AntDesign, Feather } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('screen')
 
 const product = ({ item,navigation }) => {
-    console.log(item)
     const url = 'https://www.google.com'
     return (
         <View style={styles.productsSec}>
             <View style={styles.container}>
-               <TouchableOpacity onPress={()=>navigation.navigate('productSingle')}>
+               <TouchableOpacity onPress={()=>navigation.navigate('productSingle',{ item: item })}>
                     <View style={styles.thumbnailSec}>
                         <Image resizeMode='contain' style={styles.image} source={item.image} />
                         <View style={styles.priceSec}>

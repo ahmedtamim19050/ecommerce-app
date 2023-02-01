@@ -6,7 +6,7 @@ const BrandSliderItem = ({ item }) => {
     const [category, setCategory] = useState('');
     const handleCategory = (q) => {
         setCategory(curr => {
-            if (curr === q) return curr;
+            if (curr === q) return !curr;
             return q;
         })
     }

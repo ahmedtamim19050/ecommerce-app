@@ -16,7 +16,7 @@ const SlideItem = ({ item }) => {
             <View style={styles.bannerSection}>
 
 
-                <ImageBackground resizeMode='contain' resizeMethod='center'  imageStyle={{ borderRadius: 10}} source={item.image}  style={styles.bgImage}>
+                <ImageBackground resizeMode='contain'  imageStyle={{ borderRadius: 10}} source={item.image}  style={styles.bgImage}>
                    {/* <View style={styles.info}>
            
                       <View style={styles.offer}>
