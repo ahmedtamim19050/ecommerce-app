@@ -23,6 +23,9 @@ import Notifications from './screens/Notifications';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import MyStore from './component/feature/MyStore';
+import { Provider, useSelector } from 'react-redux';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -62,9 +65,9 @@ export default function App() {
   const queryClient = new QueryClient()
   
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider  client={queryClient}>
     <NavigationContainer>
-
+        <Provider store={MyStore}>
       <Tab.Navigator 
       screenOptions={({route})=>({
         tabBarIcon:({focused,size,color})=>{
@@ -127,6 +130,7 @@ export default function App() {
         {/* <Tab.Screen name="About" component={HomeStack} /> */}
 
       </Tab.Navigator>
+      </Provider>
     </NavigationContainer>
     </QueryClientProvider>
 

@@ -4,8 +4,10 @@ import { TouchableHighlight } from 'react-native-gesture-handler'
 import { AntDesign, Feather } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('screen')
 
+
 const product = ({ item,navigation }) => {
     const url = 'https://www.google.com'
+
     return (
         <View style={styles.productsSec}>
             <View style={styles.container}>

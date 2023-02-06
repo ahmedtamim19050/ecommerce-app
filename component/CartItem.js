@@ -1,7 +1,8 @@
-import { Alert, Image, StyleSheet, Text, View } from 'react-native'
+import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { AntDesign, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {removeCartItem, removeItem} from './feature/CartSlice'
+import { useDispatch } from 'react-redux';
 
 const CartItem = ({item}) => {
     const [count, setCount] = useState(1)
@@ -10,10 +11,16 @@ const CartItem = ({item}) => {
             setCount(count - 1)
         }
     }
+    const dispatch = useDispatch();
+    const items=useSelector(state=>state.cart);
+    const removeItem=index=>{
+      dispatch(removeCartItem(index))
+    }
+    const regex = /(<([^>]+)>)/ig;
     return (
         <View style={styles.container}>
             <View style={styles.imageSec}>
-                <Image style={styles.image} resizeMode='contain' source={item.image} />
+                <Image style={styles.image} resizeMode='contain' source={{uri:item ?.images[0]?.src}} />
                 <View style={styles.quantitySec}>
                     <AntDesign name='minus' onPress={() => handleMinusCount()} size={20} color="#fff" style={{  }} />
                     <Text style={styles.quantityAmmount}>{count}</Text>
@@ -21,16 +28,21 @@ const CartItem = ({item}) => {
                     <AntDesign onPress={() => setCount(count + 1)} name='plus' size={19} color="#fff" style={{  }} />
                     </TouchableOpacity>
                 </View>
+
                 <View style={styles.cartDeleteSec}>
+                <TouchableOpacity onPress={() => removeItem(item.id)} style={styles.wishlist}>
                     <AntDesign name='delete' size={18} color="#fff" />
+                    </TouchableOpacity>
                 </View>
+           
+               
             </View>
             <View style={styles.infoSec}>
                 <View style={styles.info}>
-                    <Text style={styles.title}>{item.title}</Text>
-                    <Text style={styles.desc}>{item.shortDesc}</Text>
+                    <Text style={styles.title}>{item.name}</Text>
+                    <Text style={styles.desc}>{item.short_description.replace(regex, '')}</Text>
                 </View>
-                <Text style={[styles.title,styles.price]}>{item.price}</Text>
+                <Text style={[styles.title,styles.price]}>${item.price}</Text>
             </View>
         </View>
     )

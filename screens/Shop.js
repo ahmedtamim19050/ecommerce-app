@@ -33,7 +33,7 @@ const Shop = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-      <Loader/>
+      {/* <Loader/> */}
         <View style={{ backgroundColor: '#fff' }}>
           <View style={styles.filterSec}>
             <View style={styles.filters}>

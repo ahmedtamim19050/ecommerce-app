@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { AntDesign, FontAwesome5, Octicons } from '@expo/vector-icons';
 import CartItem from '../component/CartItem';
 import CartItems from '../data/NewArrivalData'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -15,11 +16,13 @@ const Cart = ({navigation}) => {
       setCount(count - 1)
     }
   }
+  const items=useSelector(state=>state.cart);
+  const dispatch = useDispatch();
   return (
     <ScrollView>
     <View style={styles.container}>
       {
-        CartItems.map(item=>{
+        items.map(item=>{
           return (
           <CartItem item={item} key={item.id}/>
           )

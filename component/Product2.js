@@ -4,11 +4,15 @@ import { AntDesign, Ionicons, Entypo } from '@expo/vector-icons';
 import AllProductsQuery from '../data/AllProductsQuery';
 import axios from 'axios';
 import base64 from 'react-native-base64'
+import { addProduct } from "./feature/CartSlice";
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 
 
 const Product2 = ({ item, navigation }) => {
+
     const [wishlist, setWishlist] = useState('');
     
     const handleWishlist = (q) => {
@@ -17,6 +21,13 @@ const Product2 = ({ item, navigation }) => {
             return q;
         })
     }
+
+    const dispatch = useDispatch();
+    const handleAddToCart=(item) => {
+      dispatch(addProduct( item ));
+    }
+    const addItems=useSelector(state=>state);
+    console.log(addItems);
 
  
     return (
@@ -28,7 +39,7 @@ const Product2 = ({ item, navigation }) => {
                             <Image style={styles.image} resizeMode='contain' source={{uri:item ?.images[0]?.src}} />
                         </TouchableOpacity>
                         <View style={styles.addCart}>
-                            <TouchableOpacity onPress={() => navigation.navigate('My Cart')}>
+                            <TouchableOpacity onPress={()=>handleAddToCart(item)}>
                                 <Entypo name='plus' size={30} color="white" />
                             </TouchableOpacity>
                         </View>
