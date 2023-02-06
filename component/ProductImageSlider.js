@@ -7,7 +7,7 @@ const ProductImageSlider = ({item}) => {
   return (
     <View>
      <View style={styles.imageSec}>
-     <Image style={styles.image} resizeMode='cover' source={{ uri:item.src }}/>
+     <Image style={styles.image} resizeMode='contain' source={{ uri:item.src }}/>
      {/* <AntDesign style={styles.leftArrow} name="left" size={18} color="black" />
      <AntDesign style={styles.rightArrow} name="right" size={18} color="black" /> */}
      </View>

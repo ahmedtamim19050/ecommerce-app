@@ -4,8 +4,11 @@ import NewArrival from './NewArrival';
 import { FlatList } from 'react-native-gesture-handler';
 import { StyleSheet, Text, View, Dimensions, Animated } from 'react-native'
 import Pagination from './Pagination';
+import NewArrivalQuery from '../data/NewArrivalQuery';
+
 const { width, height } = Dimensions.get('screen')
 const NewArrrivalSlider = ({ navigation }) => {
+  const newArrival=NewArrivalQuery();
   const scrollX = useRef(new Animated.Value(0)).current;
   const handleOnScroll = event => {
     Animated.event([
@@ -25,7 +28,7 @@ const NewArrrivalSlider = ({ navigation }) => {
       <FlatList horizontal pagingEnabled
         snapToAlignment='center'
         showsHorizontalScrollIndicator={false}
-        data={newArrivalProducts}
+        data={newArrival.data}
         onScroll={handleOnScroll}
   
         renderItem={({ item }) => <NewArrival key={item.id} item={item} navigation={navigation} />} />

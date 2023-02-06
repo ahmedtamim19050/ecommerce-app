@@ -11,6 +11,7 @@ import ColorSlider from '../component/ColorSlider';
 import PriceRange from '../component/PriceRange';
 import Review from '../component/Review';
 import AllProductsQuery from '../data/AllProductsQuery';
+import Loader from '../component/Loader';
 
 
 const Shop = ({ navigation }) => {
@@ -27,12 +28,12 @@ const Shop = ({ navigation }) => {
     })
   }
   const {data,isLoading}=AllProductsQuery();
-  console.log(isLoading);
- isLoading == false && console.log(data[0]);
+
 
   return (
     <ScrollView>
       <View style={styles.container}>
+      <Loader/>
         <View style={{ backgroundColor: '#fff' }}>
           <View style={styles.filterSec}>
             <View style={styles.filters}>
@@ -92,7 +93,7 @@ const Shop = ({ navigation }) => {
           <View style={styles.products}>
             {
               isLoading ? (
-                <Text>Loading</Text>
+                <Loader/>
               ):(
                 data.map((item) => {
                   return <Product2 navigation={navigation} key={item.id} item={item} />
@@ -102,10 +103,16 @@ const Shop = ({ navigation }) => {
             }
           </View> :
                  <View style={styles.products2}>
+                  
                  {
-                   products.map((item) => {
+                  isLoading ? (
+                    <Text>Loading</Text>
+                  ):
+                  (
+                   data.map((item) => {
                      return <Product3 navigation={navigation} key={item.id} item={item} />
                    })
+                  )
                  }
                </View>
         }

@@ -17,26 +17,7 @@ const Product2 = ({ item, navigation }) => {
             return q;
         })
     }
-    console.log(item.images[0].src)
- 
 
-    // useEffect(()=>{
-    //     axios.get('https://api.sohojearning.com/wp-json/wc/v3/products', {
-    //         headers:{
-    //             Authorization: 'Basic ' + base64.encode('ck_574b2af8429dd6c6160c97563a05bf7d62989134:cs_861c205b566b235d1b35fa7f9e335796a6e0df64')
-
-    //         }
-    
-    //       })
-    //         .then(response => {
-    //           console.log(response.data)
-    //         })
-    //         .catch(error => {
-    //           console.error(error)
-    //         })
-    // },[]);
-    // const {data , isLoading}=AllProductsQuery();
-    // console.log(data);
  
     return (
         <View style={styles.productsSec}>
@@ -51,8 +32,8 @@ const Product2 = ({ item, navigation }) => {
                                 <Entypo name='plus' size={30} color="white" />
                             </TouchableOpacity>
                         </View>
-                        {item.priceStatus ? (<View style={[styles.statusSec, item.priceStatus == "NEW" ? styles.primary : '', item.priceStatus == "Free Sheeping" ? styles.secondery : '']}>
-                            <Text style={[styles.priceStatus, item.priceStatus == "NEW" ? styles.primary : '', item.priceStatus == "Free Sheeping" ? styles.secondery : '']}>{item.priceStatus}</Text>
+                        {item.type ? (<View style={[styles.statusSec, item.priceStatus == "NEW" ? styles.primary : '', item.priceStatus == "Free Sheeping" ? styles.secondery : '']}>
+                            <Text style={[styles.priceStatus, item.priceStatus == "NEW" ? styles.primary : '', item.priceStatus == "Free Sheeping" ? styles.secondery : '']}>{item.type}</Text>
                         </View>) : ''}
 
                         <TouchableOpacity onPress={() => handleWishlist(item.id)} style={styles.wishlist}>

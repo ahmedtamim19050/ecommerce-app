@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Text, View,StyleSheet } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler';
+import NewArrivalQuery from '../data/NewArrivalQuery';
 import products from '../data/ProductsData';
 import Product from './Product';
 
 const TopsalesSlider = ({navigation}) => {
+  const newArrival=NewArrivalQuery();
 
     return (
 
@@ -12,7 +14,7 @@ const TopsalesSlider = ({navigation}) => {
         <FlatList horizontal
           snapToAlignment='center'
           showsHorizontalScrollIndicator={false}
-          data={products}
+          data={newArrival.data}
           renderItem={({ item }) => <Product key={item.id} navigation={navigation} item={item} />} />
       </View>
     )

@@ -21,7 +21,7 @@ const Category = ({item,navigation}) => {
             <View style={[styles.container, styles.shadowProp,category===item.title ? styles.active :''  ]}>
                  <TouchableOpacity onPress={()=>handeCategory(item.title)} style={styles.item}>
                
-                    <Text style={[styles.title, category===item.title ? styles.active :'' ]} onPress={()=>navigation.navigate('All Products')}>{item.title}</Text>
+                    <Text style={[styles.title, category===item.title ? styles.active :'' ]} onPress={()=>navigation.navigate('All Products')}>{item.name}</Text>
                 </TouchableOpacity>
                
             </View>

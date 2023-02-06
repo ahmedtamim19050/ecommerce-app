@@ -56,6 +56,7 @@ const ProductSingle = ({ navigation,route }) => {
       setCount(count - 1)
     }
   }
+  const regex = /(<([^>]+)>)/ig;
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -65,19 +66,19 @@ const ProductSingle = ({ navigation,route }) => {
           showsHorizontalScrollIndicator={false}
           data={images}
           snapToInterval={width}
-          renderItem={({ item }) => <ProductImageSlider item={item} navigation={navigation} />} />
+          renderItem={({ item }) => <ProductImageSlider item={item} key={item.id } navigation={navigation} />} />
         <View style={{ marginTop: 10, }}>
           <Pagination data={ProductImage} scrollX={scrollX} />
         </View>
 
         <View style={styles.infoSec}>
-        <Text style={[styles.category,{marginLeft:30,marginTop:20,fontSize:16,color:'#FEA096'}]}>Camera</Text>
-          <Text style={styles.productTitle}>{item.title}</Text>
+        <Text style={[styles.category,{marginLeft:30,marginTop:20,fontSize:16,color:'#FEA096'}]}>{item.categories[0].name}</Text>
+          <Text style={styles.productTitle}>{item.name}</Text>
           <View style={styles.headSec}>
             <View>
               <Text style={[styles.category,{color:'#888',fontSize:12}]}>Reviews</Text>
               <View style={styles.ratings}>
-                <Text style={styles.ratingCount}>5k</Text>
+                <Text style={styles.ratingCount}>{item.rating_count}</Text>
                 <View style={styles.staricon}>
                   <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
                   <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
@@ -88,7 +89,7 @@ const ProductSingle = ({ navigation,route }) => {
               </View>
             </View>
             <View>
-              <Text style={styles.offerPrice}>{item.offerPrice}</Text>
+              <Text style={styles.offerPrice}>{item.regular_price}</Text>
               <Text style={styles.price}>{item.price}</Text>
             </View>
           </View>
@@ -151,7 +152,7 @@ const ProductSingle = ({ navigation,route }) => {
             </View>
           </View>
           <View style={styles.detailsSec}>
-            <Text style={styles.detailsText}>{item.shortDesc}</Text>
+            <Text style={styles.detailsText}>{item.description.replace(regex, '')}</Text>
           </View>
           <View>
             <View style={styles.cartsSec}>
@@ -233,7 +234,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 27,
-    marginTop: 5,
+    // marginTop: 5,
     fontWeight: '700',
     color: '#F25292',
     textAlign: 'right',

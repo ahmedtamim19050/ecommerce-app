@@ -11,16 +11,16 @@ const product = ({ item,navigation }) => {
             <View style={styles.container}>
                <TouchableOpacity onPress={()=>navigation.navigate('productSingle',{ item: item })}>
                     <View style={styles.thumbnailSec}>
-                        <Image resizeMode='contain' style={styles.image} source={item.image} />
+                        <Image resizeMode='contain' style={styles.image} source={{uri:item ?.images[0]?.src}} />
                         <View style={styles.priceSec}>
-                            <Text style={styles.price}>{item.price}</Text>
+                            <Text style={styles.price}>${item.price}</Text>
                         </View>
-                        {item.priceStatus?(<View style={ styles.statusSec}>
-                            <Text style={{ fontSize:12,fontWeight:'500',textAlign:'center', marginTop:10,color:'#fff' }}>{item.priceStatus}</Text>
+                        {item.type?(<View style={ styles.statusSec}>
+                            <Text style={{ fontSize:12,fontWeight:'500',textAlign:'center', marginTop:10,color:'#fff' }}>{item.type}</Text>
                         </View>) : ''}
                     </View>
                     <View style={styles.info}>
-                        <Text style={styles.title}>{item.title}</Text>
+                        <Text style={styles.title}>{item.name}</Text>
                         <View style={styles.staricon}>
                             <AntDesign name='star' size={14} color="#FFD701" style={{marginRight:3,}}/>
                             <AntDesign name='star' size={14} color="#FFD701" style={{marginRight:3,}}/>
@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
         backgroundColor:'#59569D',
         // paddingHorizontal:15,
         // paddingVertical:15,
-        height:40,
-        width:55,
+        height:45,
+        width:60,
         fontWeight:'600',
         borderBottomLeftRadius:50,
    

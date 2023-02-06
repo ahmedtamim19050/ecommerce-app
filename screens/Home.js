@@ -16,10 +16,12 @@ import ColorSlider from '../component/ColorSlider';
 import PriceRange from '../component/PriceRange';
 import Review from '../component/Review';
 import { useFonts } from 'expo-font';
+import NewArrivalQuery from '../data/NewArrivalQuery';
 
 
 
 export default function Home({ navigation }) {
+
   const [text, setText] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [colorDown, setColorDown] = useState(false);
@@ -34,6 +36,8 @@ export default function Home({ navigation }) {
   if (!fontsLoaded) {
     return undefined;
   }
+
+
   return (
     <ScrollView>
       <View style={styles.container}>

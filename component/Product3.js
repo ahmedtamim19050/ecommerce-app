@@ -14,13 +14,14 @@ const Product3 = ({ item, navigation }) => {
             return q;
         })
     }
+    const regex = /(<([^>]+)>)/ig;
     return (
         <View style={styles.productsSec}>
             <View style={styles.container}>
                 <View>
                     <View style={styles.thumbnailSec}>
                         <TouchableOpacity onPress={() => navigation.navigate('productSingle',{ item: item })}>
-                            <Image style={styles.image} resizeMode='contain' source={item.image} />
+                            <Image style={styles.image} resizeMode='contain' source={{uri:item ?.images[0]?.src}} />
                         </TouchableOpacity>
                         <View style={styles.addCart}>
                             <TouchableOpacity onPress={() => navigation.navigate('My Cart')}>
@@ -28,8 +29,8 @@ const Product3 = ({ item, navigation }) => {
                             </TouchableOpacity>
                         </View>
 
-                        {item.priceStatus ? (<View style={[styles.statusSec, item.priceStatus == "NEW" ? styles.primary : '', item.priceStatus == "Free Sheeping" ? styles.secondery : '']}>
-                            <Text style={[styles.priceStatus, item.priceStatus == "NEW" ? styles.primary : '', item.priceStatus == "Free Sheeping" ? styles.secondery : '']}>{item.priceStatus}</Text>
+                        {item.type ? (<View style={[styles.statusSec, item.type=='new' ? styles.primary : '', item.type == "free_heeping" ? styles.secondery : '']}>
+                            <Text style={[styles.priceStatus, item.priceStatus == "NEW" ? styles.primary : '', item.type == "free_heeping" ? styles.secondery : '']}>{ item.type}</Text>
                         </View>) : ''}
 
                         <TouchableOpacity onPress={() => handleWishlist(item.id)} style={styles.wishlist}>
@@ -38,7 +39,8 @@ const Product3 = ({ item, navigation }) => {
 
                     </View>
                     <View style={styles.info}>
-                        <Text style={styles.title} onPress={() => navigation.navigate('productSingle')}>{item.title}</Text>
+                        <Text style={styles.title} onPress={() => navigation.navigate('productSingle')}>{item.name}</Text>
+                        <Text style={{marginHorizontal:5, marginTop:3,color:'#888',fontSize:16}}>{item.short_description.replace(regex, '')}</Text>
                         <View style={styles.staricon}>
                             <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
                             <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
@@ -48,14 +50,14 @@ const Product3 = ({ item, navigation }) => {
                         </View>
                         <View style={styles.priceSec}>
                             {
-                                item.offerPrice ? (
+                                item.regular_price ? (
                                     <Text style={[styles.price, styles.offerprice]}>
-                                        {item.offerPrice}
+                                        {item.regular_price}
                                     </Text>
                                 ) : ''
                             }
 
-                            <Text style={[styles.price, item.offerPrice ? styles.isOfferPrice : '']}>
+                            <Text style={[styles.price, item.regular_price ? styles.isOfferPrice : '']}>
                                 {item.price}
                             </Text>
                         </View>
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
     },
     title: {
         marginTop: 10,
-        fontSize: 17,
+        fontSize: 20,
         textAlign: 'left',
         color: '#555',
         fontWeight: '600',
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
     staricon: {
         flexDirection: 'row',
         marginLeft: 5,
-        marginTop: 5,
+        // marginTop: 5,
     },
     addCart: {
         position: 'absolute',

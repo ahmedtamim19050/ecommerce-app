@@ -4,18 +4,19 @@ import { AntDesign } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('screen')
 
 const NewArrival = ({item,navigation}) => {
+    const regex = /(<([^>]+)>)/ig;
   return (
 <View style={styles.NewArrivalSec} >
     <Pressable onPress={()=>navigation.navigate('productSingle',{ item: item })}>
       <View style={styles.container} >
         <View style={styles.thumbnail}>
-        <Image style={styles.image} resizeMode='contain' source={item.image} />
+        <Image style={styles.image} resizeMode='contain' source={{uri:item ?.images[0]?.src}} />
         </View>
         <View style={styles.info}>
-                <Text style={styles.title} onPress={()=>navigation.navigate('productSingle',{ item: item })}>{item.title}</Text>
-                <Text style={styles.shortDesc}>{item.shortDesc}</Text>
+                <Text style={styles.title} onPress={()=>navigation.navigate('productSingle',{ item: item })}>{item.name}</Text>
+                <Text style={styles.shortDesc}>{item.short_description.replace(regex, '')}</Text>
 
-                    <Text style={styles.price}>{item.price}</Text>
+                    <Text style={styles.price}>${item.price}</Text>
 
             </View>
             {/* <View style={styles.rightArrowIcon}>
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
         color:'#777'
     },
     price:{
-        marginTop:5,
+        // marginTop:5,
         fontSize:16,
         fontWeight:'600',
         color:'#F25292'
