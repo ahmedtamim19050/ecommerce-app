@@ -58,7 +58,7 @@ const Payment = ({ navigation }) => {
                     {
                         [method === 'cash-on' ?
                             (
-                                <View style={{ borderRadius: 100, }}>
+                                <View style={{ borderRadius: 100, }} key={'cash-on'}>
                                     <Image style={{ height: 280, width:'100%', marginTop: 30, borderRadius: 20 }}  resizeMode='contain' source={require("../assets/images/ckzpe1c6d0002796g2awifpw8.jpg")} />
                                     <TouchableOpacity onPress={() => navigation.navigate('Thankyou')}>
                                         <Text onPress={() => navigation.navigate('Thankyou')} style={styles.orderBtn}>Complete Order - $149.00</Text>
@@ -67,7 +67,7 @@ const Payment = ({ navigation }) => {
                             ) : '',
                         method === 'paypal' ?
                             (<View>
-                                <View style={styles.paypalHead} >
+                                <View style={styles.paypalHead} key={'paypal'}>
                                     <Image style={{ height: 50, width: 100 }} source={require("../assets/images/Paypal-logo.png")} />
                                     <View style={styles.paypalAcSec}>
                                         <AntDesign name='shoppingcart' size={20} color="#666" />
@@ -97,7 +97,7 @@ const Payment = ({ navigation }) => {
                             ) : '',
                         method === 'stripe' ?
                             (
-                                <View>
+                                <View key={ 'stripe' }>
                                     <Text style={styles.label}>Card Number</Text>
                                     <TextInput style={[styles.input]}
                                         label="Text"

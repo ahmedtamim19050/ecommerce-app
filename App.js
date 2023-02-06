@@ -22,6 +22,7 @@ import ShippingAddress from './screens/ShippingAddress';
 import Notifications from './screens/Notifications';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 
 const Stack = createNativeStackNavigator();
@@ -58,8 +59,10 @@ const HomeStack=()=>{
 }
 const Tab = createBottomTabNavigator();
 export default function App() {
+  const queryClient = new QueryClient()
+  
   return (
-
+    <QueryClientProvider client={queryClient}>
     <NavigationContainer>
 
       <Tab.Navigator 
@@ -125,6 +128,7 @@ export default function App() {
 
       </Tab.Navigator>
     </NavigationContainer>
+    </QueryClientProvider>
 
 
 

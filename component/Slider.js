@@ -34,7 +34,7 @@ const Slider = () => {
          
             data={Slides} 
             renderItem={({ item }) => <SlideItem key={item.id} item={item} />} />
-            <Pagination data={Slides} scrollX={scrollX}/>
+            <Pagination data={Slides}  scrollX={scrollX}/>
 
        
         </View>

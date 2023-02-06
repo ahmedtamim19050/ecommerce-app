@@ -1,26 +1,50 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AntDesign, Ionicons, Entypo } from '@expo/vector-icons';
+import AllProductsQuery from '../data/AllProductsQuery';
+import axios from 'axios';
+import base64 from 'react-native-base64'
 
 
 
 
 const Product2 = ({ item, navigation }) => {
     const [wishlist, setWishlist] = useState('');
-
+    
     const handleWishlist = (q) => {
         setWishlist(curr => {
             if (curr === q) return null;
             return q;
         })
     }
+    console.log(item.images[0].src)
+ 
+
+    // useEffect(()=>{
+    //     axios.get('https://api.sohojearning.com/wp-json/wc/v3/products', {
+    //         headers:{
+    //             Authorization: 'Basic ' + base64.encode('ck_574b2af8429dd6c6160c97563a05bf7d62989134:cs_861c205b566b235d1b35fa7f9e335796a6e0df64')
+
+    //         }
+    
+    //       })
+    //         .then(response => {
+    //           console.log(response.data)
+    //         })
+    //         .catch(error => {
+    //           console.error(error)
+    //         })
+    // },[]);
+    // const {data , isLoading}=AllProductsQuery();
+    // console.log(data);
+ 
     return (
         <View style={styles.productsSec}>
             <View style={styles.container}>
                 <View>
                     <View style={styles.thumbnailSec}>
                         <TouchableOpacity onPress={() => navigation.navigate('productSingle',{ item: item })}>
-                            <Image style={styles.image} resizeMode='contain' source={item.image} />
+                            <Image style={styles.image} resizeMode='contain' source={{uri:item ?.images[0]?.src}} />
                         </TouchableOpacity>
                         <View style={styles.addCart}>
                             <TouchableOpacity onPress={() => navigation.navigate('My Cart')}>
@@ -37,7 +61,7 @@ const Product2 = ({ item, navigation }) => {
 
                     </View>
                     <View style={styles.info}>
-                        <Text style={styles.title} onPress={() => navigation.navigate('productSingle',{ item: item })}>{item.title}</Text>
+                        <Text style={styles.title} onPress={() => navigation.navigate('productSingle',{ item: item })}>{item.name}</Text>
                         <View style={styles.staricon}>
                             <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
                             <AntDesign name='star' size={14} color="#FFD701" style={{ marginRight: 3, }} />
@@ -47,14 +71,14 @@ const Product2 = ({ item, navigation }) => {
                         </View>
                         <View style={styles.priceSec}>
                             {
-                                item.offerPrice ? (
+                                item.regular_price ? (
                                     <Text style={[styles.price, styles.offerprice]}>
-                                        {item.offerPrice}
+                                        {item.regular_price}
                                     </Text>
                                 ) : ''
                             }
 
-                            <Text style={[styles.price, item.offerPrice ? styles.isOfferPrice : '']}>
+                            <Text style={[styles.price, item.regular_price ? styles.isOfferPrice : '']}>
                                 {item.price}
                             </Text>
                         </View>

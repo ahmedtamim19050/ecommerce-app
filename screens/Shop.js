@@ -10,6 +10,7 @@ import BrandSliders from '../component/BrandSliders';
 import ColorSlider from '../component/ColorSlider';
 import PriceRange from '../component/PriceRange';
 import Review from '../component/Review';
+import AllProductsQuery from '../data/AllProductsQuery';
 
 
 const Shop = ({ navigation }) => {
@@ -25,6 +26,10 @@ const Shop = ({ navigation }) => {
       return q;
     })
   }
+  const {data,isLoading}=AllProductsQuery();
+  console.log(isLoading);
+ isLoading == false && console.log(data[0]);
+
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -86,9 +91,14 @@ const Shop = ({ navigation }) => {
           view ? 
           <View style={styles.products}>
             {
-              products.map((item) => {
-                return <Product2 navigation={navigation} key={item.id} item={item} />
-              })
+              isLoading ? (
+                <Text>Loading</Text>
+              ):(
+                data.map((item) => {
+                  return <Product2 navigation={navigation} key={item.id} item={item} />
+                })
+              )
+            
             }
           </View> :
                  <View style={styles.products2}>

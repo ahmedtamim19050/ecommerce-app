@@ -19,7 +19,7 @@ const Product3 = ({ item, navigation }) => {
             <View style={styles.container}>
                 <View>
                     <View style={styles.thumbnailSec}>
-                        <TouchableOpacity onPress={() => navigation.navigate('productSingle')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('productSingle',{ item: item })}>
                             <Image style={styles.image} resizeMode='contain' source={item.image} />
                         </TouchableOpacity>
                         <View style={styles.addCart}>

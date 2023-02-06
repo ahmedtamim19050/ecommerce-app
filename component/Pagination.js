@@ -3,7 +3,7 @@ import React from 'react'
 const {width}=Dimensions.get('screen')
 const Pagination = ({data,scrollX}) => {
   return (
-    <View style={styles.container} key={data.id}>
+    <View style={styles.container}  >
      {
         data.map((_,idx)=>{
         
@@ -12,7 +12,7 @@ const Pagination = ({data,scrollX}) => {
               inputRange: inputRange,
               outputRange: [12, 30, 12],
             })
-            return <Animated.View key={data.id} style={[styles.dot,{width:dotWidth}]}/>
+            return <Animated.View key={idx} style={[styles.dot,{width:dotWidth}]}/>
         })
      }
     </View>
