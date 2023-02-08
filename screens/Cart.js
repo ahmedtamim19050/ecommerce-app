@@ -1,9 +1,10 @@
 import { Alert, Image, StyleSheet, Text, TextInput, View,ScrollView,TouchableOpacity} from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AntDesign, FontAwesome5, Octicons } from '@expo/vector-icons';
 import CartItem from '../component/CartItem';
 import CartItems from '../data/NewArrivalData'
 import { useDispatch, useSelector } from 'react-redux';
+
 
 
 
@@ -18,6 +19,14 @@ const Cart = ({navigation}) => {
   }
   const items=useSelector(state=>state.cart);
   const dispatch = useDispatch();
+  const [sum,setSum]=useState(0);
+  useEffect(()=>{
+    setSum(items.reduce((acc, item) => acc + parseInt(item.price), 0));
+    
+  },[items])
+  const [discount,SetDiscount]=useState(5);
+  const [shipping,SetShipping]=useState(2);
+   const totalSum=sum+discount+shipping;
   return (
     <ScrollView>
     <View style={styles.container}>
@@ -37,21 +46,21 @@ const Cart = ({navigation}) => {
       <View style={styles.accountSec}>
         <View style={styles.item}>
           <Text style={styles.accountTitle}>Subtotal :</Text>
-          <Text style={styles.price}>$483.00</Text>
+          <Text style={styles.price}>${sum}</Text>
         </View>
         <View style={styles.item}>
           <Text style={styles.accountTitle}>Shipping :</Text>
-          <Text style={styles.price}>$18.00</Text>
+          <Text style={styles.price}>${shipping}</Text>
         </View>
         <View style={styles.item}>
           <Text style={styles.accountTitle}>Discount :</Text>
-          <Text style={styles.price}>$5.00</Text>
+          <Text style={styles.price}>${discount}</Text>
         </View>
         <View style={[styles.item,styles.BorderNone]}>
           <Text style={[styles.accountTitle,{color:'#59569D',fontSize:16,}]}>Total :</Text>
           <View style={styles.totalSec}>
-            <Text style={styles.itemCount}>(3 item)</Text>
-          <Text style={[styles.price,styles.totalPrice]}>$506.00</Text>
+            <Text style={styles.itemCount}>({items.length} item)</Text>
+          <Text style={[styles.price,styles.totalPrice]}>${totalSum}</Text>
           </View>
         </View>
 

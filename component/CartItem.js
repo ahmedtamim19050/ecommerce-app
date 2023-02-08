@@ -1,8 +1,8 @@
 import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { AntDesign, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
-import {removeCartItem, removeItem} from './feature/CartSlice'
-import { useDispatch } from 'react-redux';
+import {removeCartItem,} from './feature/CartSlice'
+import { useDispatch, useSelector } from 'react-redux';
 
 const CartItem = ({item}) => {
     const [count, setCount] = useState(1)

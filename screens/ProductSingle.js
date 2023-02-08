@@ -5,11 +5,13 @@ import ProductImageSlider from '../component/ProductImageSlider';
 import ProductImage from '../data/NewArrivalData'
 import Pagination from '../component/Pagination'
 import { AntDesign, Octicons, Fontisto, Ionicons } from '@expo/vector-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from "../component/feature/CartSlice";
 const { width, height } = Dimensions.get('screen')
 
-const ProductSingle = ({ navigation,route }) => {
-  const item=route.params.item;
-  const images=item.images;
+const ProductSingle = ({ navigation, route }) => {
+  const item = route.params.item;
+  const images = item.images;
 
   const scrollX = useRef(new Animated.Value(0)).current;
   const handleOnScroll = event => {
@@ -57,6 +59,11 @@ const ProductSingle = ({ navigation,route }) => {
     }
   }
   const regex = /(<([^>]+)>)/ig;
+  const dispatch = useDispatch();
+  const handleAddToCart = (item) => {
+    dispatch(addProduct(item));
+  }
+  const addItems = useSelector(state => state);
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -66,17 +73,17 @@ const ProductSingle = ({ navigation,route }) => {
           showsHorizontalScrollIndicator={false}
           data={images}
           snapToInterval={width}
-          renderItem={({ item }) => <ProductImageSlider item={item} key={item.id } navigation={navigation} />} />
+          renderItem={({ item }) => <ProductImageSlider item={item} key={item.id} navigation={navigation} />} />
         <View style={{ marginTop: 10, }}>
           <Pagination data={ProductImage} scrollX={scrollX} />
         </View>
 
         <View style={styles.infoSec}>
-        <Text style={[styles.category,{marginLeft:30,marginTop:20,fontSize:16,color:'#FEA096'}]}>{item.categories[0].name}</Text>
+          <Text style={[styles.category, { marginLeft: 30, marginTop: 20, fontSize: 16, color: '#FEA096' }]}>{item.categories[0].name}</Text>
           <Text style={styles.productTitle}>{item.name}</Text>
           <View style={styles.headSec}>
             <View>
-              <Text style={[styles.category,{color:'#888',fontSize:12}]}>Reviews</Text>
+              <Text style={[styles.category, { color: '#888', fontSize: 12 }]}>Reviews</Text>
               <View style={styles.ratings}>
                 <Text style={styles.ratingCount}>{item.rating_count}</Text>
                 <View style={styles.staricon}>
@@ -167,12 +174,16 @@ const ProductSingle = ({ navigation,route }) => {
               </View>
               <TouchableOpacity onPress={() => navigation.navigate('My Cart')}>
                 <View style={{ position: 'relative' }} >
-                  <Text style={styles.cartBtn} onPress={() => navigation.navigate('My Cart')}>Add to cart</Text>
+                  <Text style={styles.cartBtn} onPress={() => handleAddToCart(item)}>Add to cart</Text>
                   <AntDesign name='right' size={18} color="#fff" style={styles.rightArrow} />
 
                 </View>
               </TouchableOpacity>
             </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Checkout')} style={{ position: 'relative' }}>
+              <Text onPress={() => navigation.navigate('Checkout')} style={styles.checkoutBtn}>Proceed to Checkout</Text>
+              <AntDesign name='right' style={styles.checkoutArrowIcon} size={18} color="#fff" />
+            </TouchableOpacity>
 
           </View>
         </View>
@@ -198,20 +209,20 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
   },
   productTitle: {
-    marginTop:20,
+    marginTop: 20,
     fontSize: 18,
     fontWeight: '600',
     color: "#59569D",
-    marginHorizontal:25,
+    marginHorizontal: 25,
   },
   staricon: {
     flexDirection: 'row',
     marginTop: 2,
-    alignItems:'center',
+    alignItems: 'center',
   },
   ratings: {
     flexDirection: 'column',
-    
+
     marginTop: 3,
   },
   ratingCount: {
@@ -343,7 +354,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingBottom: 80,
+
   },
   cartBtn: {
     backgroundColor: '#F25292',
@@ -361,5 +372,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#ef7aa7',
     padding: 10,
     borderRadius: 50,
+  },
+  checkoutBtn:{
+    backgroundColor:'#FEA096',
+    paddingVertical:15,
+    marginTop:15,
+    paddingHorizontal:20,
+    marginBottom:20,
+    color:'#fff',
+    fontSize:16,
+    borderRadius:30,
+    marginBottom: 80,
+    marginHorizontal:30,
+  },
+  checkoutArrowIcon:{
+    position:'absolute',
+    right:40,
+    top:22,
+    backgroundColor: '#ffc2bc',
+    padding: 10,
+    borderRadius: 50,
+
   }
 })

@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView,Button } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Button } from 'react-native';
 import { NavigationContainer, TabActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Ionicons,Feather } from '@expo/vector-icons';
+import { Ionicons, Feather } from '@expo/vector-icons';
 
 import Home from './screens/Home';
 import Product from './screens/ProductSingle';
@@ -25,114 +25,114 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import MyStore from './component/feature/MyStore';
 import { Provider, useSelector } from 'react-redux';
+import {  CartContext, CartProvider } from './Global/CartContext';
+import { useContext } from 'react';
 
 
 
 const Stack = createNativeStackNavigator();
 
-function LogoTitle() {
-  return (
-    <Image
-      style={{ width: 80, height: 80, justifyContent: 'center' }}
-      source={require("./assets/images/logo.png")}
-    />
-  );
-}
+const HomeStack = () => {
 
-const HomeStack=()=>{
   return (
-    <Stack.Navigator initialRouteName={Home}  screenOptions={{  
-         headerTintColor: '#59569D', 
-         headerTitleAlign: 'center',
-    }}>  
-    <Stack.Screen name="Home2" component={Home} options={{ headerShown:false }}  />  
-     <Stack.Screen name="About" navigator={navigator}  component={About} />
-     <Stack.Screen name="productSingle" navigator={navigator}  options={{ title: 'Product Single' }}  component={ProductSingle} />
-     <Stack.Screen name="Checkout" navigator={navigator}  options={{ title: 'Shipping' }} component={Checkout} />
-     <Stack.Screen name="Payment" navigator={navigator}  options={{ title: 'Payment' }} component={Payment} />
-     <Stack.Screen name="Thankyou" navigator={navigator}  options={{ title: 'Thank you' }} component={Thankyou} />
-     <Stack.Screen name="OrderDetails" navigator={navigator}  options={{ title: 'Order Details' }} component={OrderDetails} />
-     <Stack.Screen name="Orders" navigator={navigator}  options={{ title: 'My Orders' }} component={Orders} />
-     <Stack.Screen name="EditProfile" navigator={navigator}  options={{ title: 'Edit Profile' }} component={EditProfile} />
-     <Stack.Screen name="Notifications" navigator={navigator}  options={{ title: 'Notifications' }} component={Notifications} />
-     <Stack.Screen name="ShippingAddress" navigator={navigator}  options={{ title: 'My Shipping Address' }} component={ShippingAddress} />
-</Stack.Navigator> 
+    <Stack.Navigator initialRouteName={Home} screenOptions={{
+      headerTintColor: '#59569D',
+      headerTitleAlign: 'center',
+    }}>
+      <Stack.Screen name="Home2" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="About" navigator={navigator} component={About} />
+      <Stack.Screen name="productSingle" navigator={navigator} options={{ title: 'Product Single' }} component={ProductSingle} />
+      <Stack.Screen name="Checkout" navigator={navigator} options={{ title: 'Shipping' }} component={Checkout} />
+      <Stack.Screen name="Payment" navigator={navigator} options={{ title: 'Payment' }} component={Payment} />
+      <Stack.Screen name="Thankyou" navigator={navigator} options={{ title: 'Thank you' }} component={Thankyou} />
+      <Stack.Screen name="OrderDetails" navigator={navigator} options={{ title: 'Order Details' }} component={OrderDetails} />
+      <Stack.Screen name="Orders" navigator={navigator} options={{ title: 'My Orders' }} component={Orders} />
+      <Stack.Screen name="EditProfile" navigator={navigator} options={{ title: 'Edit Profile' }} component={EditProfile} />
+      <Stack.Screen name="Notifications" navigator={navigator} options={{ title: 'Notifications' }} component={Notifications} />
+      <Stack.Screen name="ShippingAddress" navigator={navigator} options={{ title: 'My Shipping Address' }} component={ShippingAddress} />
+    </Stack.Navigator>
   )
 
 }
+
 const Tab = createBottomTabNavigator();
+
 export default function App() {
   const queryClient = new QueryClient()
-  
+
+
   return (
-    <QueryClientProvider  client={queryClient}>
-    <NavigationContainer>
-        <Provider store={MyStore}>
-      <Tab.Navigator 
-      screenOptions={({route})=>({
-        tabBarIcon:({focused,size,color})=>{
-          let iconName;
-          if(route.name==='Home'){
-            iconName=focused ? 'home' :'home-outline';
-            size=focused ? 30 : 24;
+   
+      <QueryClientProvider client={queryClient}>
+        <NavigationContainer>
+          <Provider store={MyStore}>
+          <CartProvider>
+            <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, size, color }) => {
+                  let iconName;
+                  if (route.name === 'Home') {
+                    iconName = focused ? 'home' : 'home-outline';
+                    size = focused ? 30 : 24;
 
-          }
-          else if(route.name==='My Cart'){
-            iconName=focused ? 'cart' :'cart-outline';
-            size=focused ? 30 : 24;
-          
-          }
-          else if(route.name==='Whish List'){
-            iconName=focused ? 'heart' :'heart-outline';
-            size=focused ? 30 : 24;
-    
-          }
-          else if(route.name==='Profile'){
-            iconName=focused ? 'person' :'person-outline';
-            size=focused ? 30 : 24;
+                  }
+                  else if (route.name === 'My Cart') {
+                    iconName = focused ? 'cart' : 'cart-outline';
+                    size = focused ? 30 : 24;
 
-          }
-          else if(route.name==='All Products'){
-            iconName=focused ? 'basket' :'basket-outline';
-            size=focused ? 30 : 24;
-     
-          }
-          return <Ionicons name={iconName} size={size} color="#59569D" style={styles.navIcon}/>
-        },
-        tabBarShowLabel:false,
-        headerShown:false,
-        tabBarStyle: { backgroundColor: '#fff' ,height:60, borderRadius:20,width:'80%', alignSelf:'center',position:'absolute',bottom:0, left:45,marginBottom:10,},
-        headerTitleAlign: 'center',
-        headerTitleStyle: {
-          color: '#59569D'
-        }
+                  }
+                  else if (route.name === 'Whish List') {
+                    iconName = focused ? 'heart' : 'heart-outline';
+                    size = focused ? 30 : 24;
 
- 
-      })}
- 
-      
+                  }
+                  else if (route.name === 'Profile') {
+                    iconName = focused ? 'person' : 'person-outline';
+                    size = focused ? 30 : 24;
 
-      
-      >
-        <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="All Products" navigator={navigator} component={Shop}  options={{
-              //  headerRight: () => (
-              //   <Button
-              //     onPress={() => alert('This is a button!')}
-              //     title="Info"
-              //     color="#777"
-              //   />
-              // ),
-        }}/>
-        <Tab.Screen name="My Cart"  options={{ tabBarBadge:3, tabBarBadgeStyle:{backgroundColor:'#F25292'} }} component={Cart} />
-        <Tab.Screen name="Whish List" navigator={navigator} component={WhishList} />
-        <Tab.Screen name="Profile" navigator={navigator} component={Profile} />
-        {/* <Tab.Screen name="About" component={HomeStack} /> */}
+                  }
+                  else if (route.name === 'All Products') {
+                    iconName = focused ? 'basket' : 'basket-outline';
+                    size = focused ? 30 : 24;
 
-      </Tab.Navigator>
-      </Provider>
-    </NavigationContainer>
-    </QueryClientProvider>
+                  }
+                  return <Ionicons name={iconName} size={size} color="#59569D" style={styles.navIcon} />
+                },
+                tabBarShowLabel: false,
+                headerShown: false,
+                tabBarStyle: { backgroundColor: '#fff', height: 60, borderRadius: 20, width: '80%', alignSelf: 'center', position: 'absolute', bottom: 0, left: 45, marginBottom: 10, },
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+                  color: '#59569D'
+                }
+
+
+              })}
+
+
+
+
+            >
+              <Tab.Screen name="Home" component={HomeStack} />
+              <Tab.Screen name="All Products" navigator={navigator} component={Shop} options={{
+                //  headerRight: () => (
+                //   <Button
+                //     onPress={() => alert('This is a button!')}
+                //     title="Info"
+                //     color="#777"
+                //   />
+                // ),
+              }} />
+              <Tab.Screen name="My Cart" options={{ tabBarBadge: 3, tabBarBadgeStyle: { backgroundColor: '#F25292' } }} component={Cart} />
+              <Tab.Screen name="Whish List" navigator={navigator} component={WhishList} />
+              <Tab.Screen name="Profile" navigator={navigator} component={Profile} />
+              {/* <Tab.Screen name="About" component={HomeStack} /> */}
+
+            </Tab.Navigator>
+            </CartProvider>
+          </Provider>
+        </NavigationContainer>
+      </QueryClientProvider>
 
 
 

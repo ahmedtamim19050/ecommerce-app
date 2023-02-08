@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Modal, Pressable, Button, Input, TouchableHighlight, ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
 import { AntDesign, Octicons, Fontisto, Ionicons } from '@expo/vector-icons';
@@ -17,6 +17,7 @@ import PriceRange from '../component/PriceRange';
 import Review from '../component/Review';
 import { useFonts } from 'expo-font';
 import NewArrivalQuery from '../data/NewArrivalQuery';
+import { CartContext } from '../Global/CartContext';
 
 
 
@@ -36,6 +37,8 @@ export default function Home({ navigation }) {
   if (!fontsLoaded) {
     return undefined;
   }
+  const {val,setVal}=useContext(CartContext);
+
 
 
   return (

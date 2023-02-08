@@ -8,7 +8,6 @@ import CategoryQuery from '../data/CategoryQuery';
 
 const CategoriSlider = ({navigation}) => {
   const categories=CategoryQuery();
-  console.log(categories);
   return (
     <FlatList horizontal 
     // snapToAlignment='center' 

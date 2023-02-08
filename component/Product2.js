@@ -27,7 +27,7 @@ const Product2 = ({ item, navigation }) => {
       dispatch(addProduct( item ));
     }
     const addItems=useSelector(state=>state);
-    console.log(addItems);
+
 
  
     return (
