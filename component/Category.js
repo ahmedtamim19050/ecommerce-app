@@ -19,9 +19,9 @@ const Category = ({item,navigation}) => {
         <View style={styles.CategorySection} key={item.id} >
             
             <View style={[styles.container, styles.shadowProp,category===item.title ? styles.active :''  ]}>
-                 <TouchableOpacity onPress={()=>handeCategory(item.title)} style={styles.item}>
+                 <TouchableOpacity  style={styles.item}>
                
-                    <Text style={[styles.title, category===item.title ? styles.active :'' ]} onPress={()=>navigation.navigate('All Products')}>{item.name}</Text>
+                    <Text style={[styles.title, category===item.title ? styles.active :'' ]}onPress={() => navigation.navigate('All Products',{ item: item })}>{item.name}</Text>
                 </TouchableOpacity>
                
             </View>

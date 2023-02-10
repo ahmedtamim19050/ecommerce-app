@@ -14,7 +14,11 @@ import AllProductsQuery from '../data/AllProductsQuery';
 import Loader from '../component/Loader';
 
 
-const Shop = ({ navigation }) => {
+const Shop = ({ navigation,route }) => {
+  let item;
+  if(route.params){
+    item = route.params.item;
+  }
   const [text, setText] = React.useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [colorDown, setColorDown] = useState(false);
@@ -27,7 +31,7 @@ const Shop = ({ navigation }) => {
       return q;
     })
   }
-  const {data,isLoading}=AllProductsQuery();
+  const {data,isLoading}=AllProductsQuery(item);
 
 
   return (

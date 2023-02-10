@@ -25,7 +25,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import MyStore from './component/feature/MyStore';
 import { Provider, useSelector } from 'react-redux';
-import {  CartContext, CartProvider } from './Global/CartContext';
+import { CartContext, CartProvider } from './Global/CartContext';
 import { useContext } from 'react';
 
 
@@ -61,11 +61,12 @@ export default function App() {
   const queryClient = new QueryClient()
 
 
+
   return (
-   
-      <QueryClientProvider client={queryClient}>
-        <NavigationContainer>
-          <Provider store={MyStore}>
+
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer>
+        <Provider store={MyStore}>
           <CartProvider>
             <Tab.Navigator
               screenOptions={({ route }) => ({
@@ -115,13 +116,23 @@ export default function App() {
             >
               <Tab.Screen name="Home" component={HomeStack} />
               <Tab.Screen name="All Products" navigator={navigator} component={Shop} options={{
-                //  headerRight: () => (
-                //   <Button
-                //     onPress={() => alert('This is a button!')}
-                //     title="Info"
-                //     color="#777"
-                //   />
-                // ),
+                tabBarOnPress: ({ navigation, route }) => {
+                  const parent = navigation.dangerouslyGetParent();
+                  if (route.name === parent.state.routes[parent.state.index].name) {
+                    // If the current route is the last route, reset it
+                    parent.dispatch(state => {
+                      parent.reset({
+                        index: 0,
+                        routes: [state.routes[0]],
+                      });
+                    });
+                  } else {
+                    // If the current route is not the last route, navigate to it
+                    navigation.navigate(route.name);
+                  }
+                },
+
+
               }} />
               <Tab.Screen name="My Cart" options={{ tabBarBadge: 3, tabBarBadgeStyle: { backgroundColor: '#F25292' } }} component={Cart} />
               <Tab.Screen name="Whish List" navigator={navigator} component={WhishList} />
@@ -129,10 +140,10 @@ export default function App() {
               {/* <Tab.Screen name="About" component={HomeStack} /> */}
 
             </Tab.Navigator>
-            </CartProvider>
-          </Provider>
-        </NavigationContainer>
-      </QueryClientProvider>
+          </CartProvider>
+        </Provider>
+      </NavigationContainer>
+    </QueryClientProvider>
 
 
 
