@@ -13,7 +13,7 @@ const ThankYou = ({navigation}) => {
                 <AntDesign name='checkcircle' size={25} color="#F25292" style={styles.checkIcon} />
             </View>
             <View style={styles.thanksImage}>
-                <Image style={{ height: 100, width: 100, marginTop: 80 }} source={require("../assets/images/3684620.png")} />
+                <Image style={{ height: 100, width: 100, marginTop: 80 }} source={require("../assets/images/3684620.jpg")} />
             </View>
             <View style={[{ marginTop: 20, }, styles.border]}>
                 <Text style={styles.greetings}> Hey Ahmed, </Text>

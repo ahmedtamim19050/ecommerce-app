@@ -9,7 +9,7 @@ const Profile = ({ navigation }) => {
         <View style={styles.border2}>
           <View style={styles.border1}>
             <View style={styles.userImageSec}>
-              <Image style={styles.userImage} source={require("../assets/users/user-1.png")} />
+              <Image style={styles.userImage} source={require("../assets/users/user-1.jpg")} />
             </View>
           </View>
         </View>

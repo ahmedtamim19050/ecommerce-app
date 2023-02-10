@@ -44,12 +44,12 @@ const Payment = ({ navigation }) => {
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.methodItem, method === 'paypal' ? styles.methodActive : '']} onPress={() => methodHandle('paypal')}>
 
-                        <Image style={{ height: 20, width: 100, }} source={require("../assets/images/Paypal-logo.png")} />
+                        <Image style={{ height: 20, width: 100, }} source={require("../assets/images/Paypal-logo.jpg")} />
 
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.methodItem, method === 'stripe' ? styles.methodActive : '']} onPress={() => methodHandle('stripe')}>
 
-                        <Image style={{ height: 20, width: 100, }} source={require("../assets/images/logo-stripe.png")} />
+                        <Image style={{ height: 20, width: 100, }} source={require("../assets/images/logo-stripe.jpg")} />
 
                     </TouchableOpacity>
                 </View>
@@ -68,7 +68,7 @@ const Payment = ({ navigation }) => {
                         method === 'paypal' ?
                             (<View>
                                 <View style={styles.paypalHead} key={'paypal'}>
-                                    <Image style={{ height: 50, width: 100 }} source={require("../assets/images/Paypal-logo.png")} />
+                                    <Image style={{ height: 50, width: 100 }} source={require("../assets/images/Paypal-logo.jpg")} />
                                     <View style={styles.paypalAcSec}>
                                         <AntDesign name='shoppingcart' size={20} color="#666" />
                                         <Text style={styles.paypalPrice}>$10.00 USD</Text>
